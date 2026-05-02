@@ -98,25 +98,25 @@
 
 :root {
   .dark {
-    --color-primary: #07080A;
-    --color-secondary: #0B0D10;
+    --color-primary: #0e0e0e;
+    --color-secondary: #090b13;
     --color-text: #ffffff;
-    --color-third: #101217;
-    --color-forth: #C8FF00;
+    --color-third: #080b13;
+    --color-forth: #612ad5;
     --color-fifth: var(--new-bgLineColor);
     --color-sixth: var(--new-table-header);
-    --color-seventh: #C8FF00;
-    --color-gray: #6E7580;
+    --color-seventh: #7236f1;
+    --color-gray: #8c8c8c;
     --color-input: var(--new-table-header);
-    --color-input-text: #A5ABB5;
+    --color-input-text: #64748b;
     --color-table-border: var(--new-table-border);
     --color-custom1: #324264;
     --color-custom2: #141c2c;
     --color-custom3: #0b0f1c;
-    --color-custom4: #C8FF00;
+    --color-custom4: #8155dd;
     --color-custom5: #e9e9f1;
     --color-custom6: var(--new-bgLineColor);
-    --color-custom7: #C8FF00;
+    --color-custom7: #7950f2;
     --color-custom8: var(--new-btn-simple);
     --color-custom9: #354258;
     --color-custom10: #e4b895;
@@ -138,8 +138,8 @@
     --color-custom26: #1d9bf0;
     --color-custom27: #71767b;
     --color-custom28: #b69dec;
-    --color-custom29: #1B1F29;
-    --color-custom30: #A8D600;
+    --color-custom29: #291259;
+    --color-custom30: #5826c2;
     --color-custom31: #0f1727;
     --color-custom32: #181818;
     --color-custom33: #f2f2f2;
@@ -154,13 +154,13 @@
     --color-custom42: #32d583;
     --color-custom43: #425379;
     --color-custom44: #283450;
-    --color-custom45: #C8FF00;
+    --color-custom45: #832ad5;
     --color-custom46: #658dac;
     --color-custom47: #182034;
     --color-custom48: #080b14;
     --color-custom49: #0a0b14;
     --color-custom50: #262373;
-    --color-custom51: #C8FF00;
+    --color-custom51: #4f46e5;
     --color-custom52: #eaeef2;
     --color-custom53: #7c7d86;
     --color-custom54: #afb8c1;
