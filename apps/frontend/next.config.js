@@ -7,6 +7,7 @@ const nextConfig = {
     proxyTimeout: 90_000,
   },
   // Document-Policy header for browser profiling
+  // Eteya-iter-3: tillåt iframe-embedding från Nova (file:// for mockup, https://nova.eteya.ai for prod)
   async headers() {
     return [
       {
@@ -15,6 +16,11 @@ const nextConfig = {
           {
             key: 'Document-Policy',
             value: 'js-profiling',
+          },
+          {
+            // Tillåt iframe från file:// (mockup), localhost (dev), nova.eteya.ai (prod)
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self' https://nova.eteya.ai http://localhost:* file://*",
           },
         ],
       },

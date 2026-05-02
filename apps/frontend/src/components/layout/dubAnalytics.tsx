@@ -1,25 +1,12 @@
 'use client';
 
-import { useVariables } from '@gitroom/react/helpers/variable.context';
-import { Analytics as DubAnalyticsIn } from '@dub/analytics/react';
-import { getCookie } from 'react-use-cookie';
+// Eteya-iter-2: dubAnalytics disabled (vi använder inte Dub.co partner-tracking).
+// Behåller export-stubs så imports fungerar utan TypeScript-fel.
 
 export const DubAnalytics = () => {
-  const { dub } = useVariables();
-  if (!dub) return null;
-  return (
-    <DubAnalyticsIn
-      domainsConfig={{
-        refer: 'postiz.pro',
-      }}
-    />
-  );
+  return null;
 };
 
 export const useDubClickId = () => {
-  const { dub } = useVariables();
-  if (!dub) return undefined;
-
-  const dubCookie = getCookie('dub_partner_data', '{}');
-  return JSON.parse(dubCookie)?.clickId || undefined;
+  return undefined;
 };

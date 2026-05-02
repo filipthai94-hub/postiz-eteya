@@ -219,20 +219,22 @@ export function RegisterAfter({
                 )}
                 &nbsp;
                 <a
-                  href={`https://postiz.com/terms`}
+                  href={`https://eteya.ai/sv/villkor`}
                   className="underline hover:font-bold"
                   rel="nofollow"
+                  target="_blank"
                 >
-                  {t('terms_of_service', 'Terms of Service')}
+                  {t('terms_of_service', 'Användarvillkor')}
                 </a>
                 &nbsp;
-                {t('and', 'and')}&nbsp;
+                {t('and', 'och')}&nbsp;
                 <a
-                  href={`https://postiz.com/privacy`}
+                  href={`https://eteya.ai/sv/integritetspolicy`}
                   rel="nofollow"
                   className="underline hover:font-bold"
+                  target="_blank"
                 >
-                  {t('privacy_policy', 'Privacy Policy')}
+                  {t('privacy_policy', 'Integritetspolicy')}
                 </a>
                 &nbsp;
               </div>

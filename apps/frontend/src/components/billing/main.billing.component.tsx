@@ -409,7 +409,7 @@ export const MainBillingComponent: FC<{
               'Payment Method Required'
             )
           ) {
-            window.open(portal);
+            window.open(portal, '_blank');
           }
         } else {
           setPeriod(monthlyOrYearly === 'on' ? 'YEARLY' : 'MONTHLY');

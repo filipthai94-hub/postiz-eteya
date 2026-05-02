@@ -146,7 +146,7 @@ export const GithubComponent: FC<{
   const fetch = useFetch();
   const connect = useCallback(async () => {
     const { url } = await (await fetch('/settings/github/url')).json();
-    window.open(url, 'Github Connect', 'width=700,height=700');
+    window.open(url, '_blank', 'width=700,height=700');
   }, []);
   const setConnected = useCallback(
     (g: { id: string; login: string }) => (name: string) => {
