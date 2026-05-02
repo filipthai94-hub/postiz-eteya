@@ -41,7 +41,7 @@ const GenerateTab = observer(({ store }: any) => {
       return;
     }
     if (!inputRef.current.value) {
-      toast.show('Please type your prompt', 'warning');
+      toast.show(t('please_type_your_prompt', 'Please type your prompt'), 'warning');
       return;
     }
     setLoading(true);

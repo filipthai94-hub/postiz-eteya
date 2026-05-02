@@ -22,6 +22,7 @@ export const ApiModal: FC<{
   const router = useRouter();
   const modal = useModals();
   const toaster = useToaster();
+  const t = useT();
   const [loading, setLoading] = useState(false);
   const closePopup = useCallback(() => {
     modal.closeAll();
@@ -49,7 +50,7 @@ export const ApiModal: FC<{
       });
 
       if (add.ok) {
-        toaster.show('Integration added successfully', 'success');
+        toaster.show(t('integration_added', 'Integration added successfully'), 'success');
         if (closePopup) {
           closePopup();
         } else {
@@ -70,8 +71,6 @@ export const ApiModal: FC<{
     },
     [props]
   );
-
-  const t = useT();
 
   return (
     <div className="relative">

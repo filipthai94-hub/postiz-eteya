@@ -16,6 +16,7 @@ import {
 } from '@gitroom/frontend/components/launches/calendar.context';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
+import 'dayjs/locale/sv'; // Eteya — svensk locale
 import 'dayjs/locale/he';
 import 'dayjs/locale/ru';
 import 'dayjs/locale/zh';

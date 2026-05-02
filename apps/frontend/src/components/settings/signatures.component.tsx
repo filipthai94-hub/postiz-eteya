@@ -35,6 +35,8 @@ export const SignaturesComponent: FC<{
     [mutate]
   );
 
+  const t = useT();
+
   const deleteSignature = useCallback(
     (data: any) => async () => {
       if (
@@ -50,13 +52,11 @@ export const SignaturesComponent: FC<{
           method: 'DELETE',
         });
         mutate();
-        toaster.show('Signature deleted successfully', 'success');
+        toaster.show(t('signature_deleted', 'Signature deleted successfully'), 'success');
       }
     },
-    []
+    [t]
   );
-
-  const t = useT();
 
   return (
     <div className="flex flex-col">
@@ -155,6 +155,7 @@ const AddOrRemoveSignature: FC<{
   const text = form.watch('content');
   const autoAdd = form.watch('autoAdd');
   const modal = useModals();
+  const t = useT();
   const callBack = useCallback(
     async (values: any) => {
       await fetch(data?.id ? `/signatures/${data.id}` : '/signatures', {
@@ -163,17 +164,15 @@ const AddOrRemoveSignature: FC<{
       });
       toast.show(
         data?.id
-          ? 'Signature updated successfully'
-          : 'Signature added successfully',
+          ? t('signature_updated', 'Signature updated successfully')
+          : t('signature_added', 'Signature added successfully'),
         'success'
       );
       modal.closeCurrent();
       reload();
     },
-    [data, modal]
+    [data, modal, t]
   );
-
-  const t = useT();
 
   return (
     <FormProvider {...form}>

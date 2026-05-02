@@ -358,40 +358,41 @@ const McpSection = ({
   );
 };
 
-const localCliSteps = [
-  {
-    label: 'Install the CLI',
-    code: 'npm install -g postiz',
-  },
-  {
-    label: 'Run: postiz auth:login',
-    code: 'postiz auth:login',
-  },
-  {
-    label: 'Install the Eteya skill for your AI agent',
-    code: 'npx skills add gitroomhq/postiz-agent',
-  },
-] as const;
-
-const ciCliSteps = [
-  {
-    label: 'Install the CLI',
-    code: 'npm install -g postiz',
-  },
-  {
-    label: 'Set your API key as an environment variable',
-    code: 'export POSTIZ_API_KEY="{API_KEY}"',
-  },
-  {
-    label: 'Install the Eteya skill for your AI agent',
-    code: 'npx skills add gitroomhq/postiz-agent',
-  },
-] as const;
-
+// Eteya-iter-2: t() flyttat IN i komponenten eftersom det är en hook
 const CliSection = ({ apiKey }: { apiKey: string }) => {
   const t = useT();
   const [mode, setMode] = useState<'local' | 'ci'>('local');
   const [revealed, setRevealed] = useState(false);
+
+  const localCliSteps = [
+    {
+      label: t('install_the_cli', 'Install the CLI'),
+      code: 'npm install -g postiz',
+    },
+    {
+      label: t('run_postiz_auth_login', 'Run: postiz auth:login'),
+      code: 'postiz auth:login',
+    },
+    {
+      label: t('install_eteya_skill', 'Install the Eteya skill for your AI agent'),
+      code: 'npx skills add gitroomhq/postiz-agent',
+    },
+  ] as const;
+
+  const ciCliSteps = [
+    {
+      label: t('install_the_cli', 'Install the CLI'),
+      code: 'npm install -g postiz',
+    },
+    {
+      label: t('set_api_key_env_var', 'Set your API key as an environment variable'),
+      code: 'export POSTIZ_API_KEY="{API_KEY}"',
+    },
+    {
+      label: t('install_eteya_skill', 'Install the Eteya skill for your AI agent'),
+      code: 'npx skills add gitroomhq/postiz-agent',
+    },
+  ] as const;
 
   const steps =
     mode === 'local'

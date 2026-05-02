@@ -6,6 +6,7 @@ import { TopTitle } from '@gitroom/frontend/components/launches/helpers/top.titl
 import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { useLaunchStore } from '@gitroom/frontend/components/new-launch/store';
 import { useVariables } from '@gitroom/react/helpers/variable.context';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 const postUrlEmitter = new EventEmitter();
 
 export const MediaSettingsLayout = () => {
@@ -307,6 +308,7 @@ export const MediaComponentInner: FC<{
       }
     | undefined;
 }> = (props) => {
+  const t = useT();
   const { onClose, onSelect, media } = props;
   const setActivateExitButton = useLaunchStore((e) => e.setActivateExitButton);
   const newFetch = useFetch();
@@ -443,7 +445,7 @@ export const MediaComponentInner: FC<{
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span>Back</span>
+                    <span>{t('back', 'Back')}</span>
                   </button>
                 </div>
 
