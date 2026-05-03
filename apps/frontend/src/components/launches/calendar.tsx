@@ -916,7 +916,7 @@ export const CalendarColumn: FC<{
                   )}
                 >
                   <div
-                    className={`group-hover:before:content-["+"] pb-[5px] flex justify-center items-center rounded-[8px] transition-all group-hover:bg-btnPrimary w-full h-full max-w-[40px] max-h-[40px]`}
+                    className={`group-hover:before:content-["+"] group-hover:before:text-black pb-[5px] flex justify-center items-center rounded-[8px] transition-all group-hover:bg-btnPrimary w-full h-full max-w-[40px] max-h-[40px]`}
                   />
                 </div>
               )}
@@ -1047,7 +1047,7 @@ const CalendarItem: FC<{
       )}
       <div
         className={clsx(
-          'text-white text-[11px] max-h-[24px] h-[24px] min-h-[24px] w-full rounded-tr-[10px] rounded-tl-[10px] flex items-center justify-center gap-[10px] px-[5px] bg-btnPrimary'
+          'text-black text-[11px] max-h-[24px] h-[24px] min-h-[24px] w-full rounded-tr-[10px] rounded-tl-[10px] flex items-center justify-center gap-[10px] px-[5px] bg-btnPrimary'
         )}
         style={{
           backgroundColor: post?.tags?.[0]?.tag?.color,

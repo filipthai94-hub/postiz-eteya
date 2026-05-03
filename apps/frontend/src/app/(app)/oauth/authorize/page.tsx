@@ -189,7 +189,7 @@ export default function OAuthAuthorizePage() {
             <button
               onClick={() => handleAction('approve')}
               disabled={submitting}
-              className="flex-1 bg-[#C8FF00] hover:bg-[#7B3FF2] disabled:opacity-50 text-white rounded-[8px] py-[10px] px-[16px] text-[14px] font-semibold transition-colors"
+              className="flex-1 bg-[#C8FF00] hover:bg-[#7B3FF2] disabled:opacity-50 text-black rounded-[8px] py-[10px] px-[16px] text-[14px] font-semibold transition-colors"
             >
               Authorize
             </button>

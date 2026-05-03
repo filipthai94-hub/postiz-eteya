@@ -410,7 +410,7 @@ div div .set-font-family {
 }
 
 .col-calendar:hover:before {
-  content: 'Date passed';
+  content: 'Datum passerat';
   color: var(--color-text);
   position: absolute;
   left: 50%;
@@ -786,7 +786,7 @@ html[dir='rtl'] [dir='ltr'] {
 
 .forceChange .changeColor {
   background: var(--new-btn-primary) !important;
-  color: #fff !important;
+  color: #050607 !important;
 }
 
 .text-shadow-tags {

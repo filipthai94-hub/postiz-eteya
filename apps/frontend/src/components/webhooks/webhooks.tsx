@@ -83,14 +83,14 @@ export const Webhooks: FC = () => {
                   <div className="flex flex-col justify-center">{p.url}</div>
                   <div className="flex flex-col justify-center">
                     <div>
-                      <Button onClick={addWebhook(p)}>
+                      <Button onClick={addWebhook(p)} className="!text-black">
                         {t('edit', 'Edit')}
                       </Button>
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
                     <div>
-                      <Button onClick={deleteHook(p)}>
+                      <Button onClick={deleteHook(p)} className="!text-black">
                         {t('delete', 'Delete')}
                       </Button>
                     </div>
@@ -102,7 +102,7 @@ export const Webhooks: FC = () => {
           <div>
             <Button
               onClick={addWebhook()}
-              className={clsx((data?.length || 0) > 0 && 'my-[16px]')}
+              className={clsx('!text-black', (data?.length || 0) > 0 && 'my-[16px]')}
             >
               {t('add_a_webhook', 'Add a webhook')}
             </Button>
@@ -283,7 +283,7 @@ export const AddOrEditWebhook: FC<{
             <div className="flex gap-[10px]">
               <Button
                 type="submit"
-                className="mt-[24px]"
+                className="mt-[24px] !text-black"
                 disabled={
                   !form.formState.isValid ||
                   (allIntegrations.value === 'specific' &&

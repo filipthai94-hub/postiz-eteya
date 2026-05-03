@@ -52,6 +52,7 @@ export const LinkedinCompanyPop: FC<{
   addText: (value: any) => void;
 }> = (props) => {
   const current = useLaunchStore((state) => state.current);
+  const t = useT();
   return (
     <svg
       onClick={() => {
@@ -63,7 +64,7 @@ export const LinkedinCompanyPop: FC<{
         });
       }}
       data-tooltip-id="tooltip"
-      data-tooltip-content="Add a LinkedIn Company"
+      data-tooltip-content={t('add_linkedin_company_tooltip', 'Add a LinkedIn Company')}
       className="mx-[10px] cursor-pointer"
       width="20"
       height="20"

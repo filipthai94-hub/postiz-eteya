@@ -179,8 +179,7 @@ export const AiVideo: FC<{
           {...(value.length < 30
             ? {
                 'data-tooltip-id': 'tooltip',
-                'data-tooltip-content':
-                  'Please add at least 30 characters to generate AI video',
+                'data-tooltip-content': t('ai_video_min_30_chars', 'Please add at least 30 characters to generate AI video'),
               }
             : {})}
           className={clsx(

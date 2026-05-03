@@ -148,7 +148,7 @@ const EmptyState: FC<{ onRefresh: () => void }> = ({ onRefresh }) => {
       </p>
       <button
         onClick={onRefresh}
-        className="inline-flex items-center gap-[6px] px-[16px] py-[8px] text-[14px] font-medium text-white bg-[#C8FF00] hover:bg-[#5023b8] rounded-[8px] transition-colors"
+        className="inline-flex items-center gap-[6px] px-[16px] py-[8px] text-[14px] font-medium text-black bg-[#C8FF00] hover:bg-[#5023b8] rounded-[8px] transition-colors"
       >
         <svg
           width="16"

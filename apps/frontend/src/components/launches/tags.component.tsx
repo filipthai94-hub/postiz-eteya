@@ -243,7 +243,7 @@ export const TagsComponentInner: FC<{
           ))}
           <div
             onClick={addTag}
-            className="cursor-pointer gap-[8px] flex w-full h-[34px] rounded-[8px] mt-[12px] px-[16px] justify-center items-center bg-[#C8FF00] text-white"
+            className="cursor-pointer gap-[8px] flex w-full h-[34px] rounded-[8px] mt-[12px] px-[16px] justify-center items-center bg-[#C8FF00] text-black"
           >
             <div>
               <PlusIcon />

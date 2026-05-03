@@ -784,5 +784,16 @@
   "locally": "Lokalt",
   "ci_remote_servers": "CI / Fjärrservrar",
   "client": "Klient",
-  "remote_servers_label": "Fjärrservrar (ChatGPT, Claude)"
+  "remote_servers_label": "Fjärrservrar (ChatGPT, Claude)",
+  "invite_link": "Skicka inbjudningslänk till kund för att lägga till kanal",
+  "add_signature_tooltip": "Lägg till signatur",
+  "add_signature_modal_title": "Lägg till signatur",
+  "link_tooltip": "Länk",
+  "title_tooltip": "Rubrik",
+  "bold_text_tooltip": "Fet text",
+  "bullets_tooltip": "Punktlista",
+  "underline_tooltip": "Understryken",
+  "add_linkedin_company_tooltip": "Lägg till LinkedIn-företag",
+  "ai_image_min_30_chars": "Lägg till minst 30 tecken för att generera AI-bild",
+  "ai_video_min_30_chars": "Lägg till minst 30 tecken för att generera AI-video"
 }

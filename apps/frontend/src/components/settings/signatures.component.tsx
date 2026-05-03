@@ -98,21 +98,21 @@ export const SignaturesComponent: FC<{
                   </div>
                   {!!appendSignature && (
                     <div className="flex justify-center">
-                      <Button onClick={() => appendSignature(p.content)}>
+                      <Button onClick={() => appendSignature(p.content)} className="!text-black">
                         {t('use_signature', 'Use Signature')}
                       </Button>
                     </div>
                   )}
                   <div className="flex justify-center">
                     <div>
-                      <Button onClick={addSignature(p)}>
+                      <Button onClick={addSignature(p)} className="!text-black">
                         {t('edit', 'Edit')}
                       </Button>
                     </div>
                   </div>
                   <div className="flex justify-center">
                     <div>
-                      <Button onClick={deleteSignature(p)}>
+                      <Button onClick={deleteSignature(p)} className="!text-black">
                         {t('delete', 'Delete')}
                       </Button>
                     </div>
@@ -124,7 +124,7 @@ export const SignaturesComponent: FC<{
           <div>
             <Button
               onClick={addSignature()}
-              className={clsx((data?.length || 0) > 0 && 'my-[16px]')}
+              className={clsx('!text-black', (data?.length || 0) > 0 && 'my-[16px]')}
             >
               {t('add_a_signature', 'Add a signature')}
             </Button>
@@ -232,7 +232,7 @@ const AddOrRemoveSignature: FC<{
             </option>
           </Select>
 
-          <Button type="submit">{t('save', 'Save')}</Button>
+          <Button type="submit" className="!text-black">{t('save', 'Save')}</Button>
         </div>
       </form>
     </FormProvider>

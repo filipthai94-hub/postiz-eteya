@@ -142,7 +142,7 @@ export const Pagination: FC<{
               className={clsx(
                 'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:bg-forth h-10 w-10 hover:text-white border-newBorder',
                 current === item - 1
-                  ? 'bg-forth !text-white'
+                  ? 'bg-forth !text-black'
                   : 'text-textColor hover:text-white'
               )}
             >
@@ -549,7 +549,7 @@ export const MediaBox: FC<{
                     onClick={addRemoveSelected(media)}
                   >
                     {!!selected.find((p: any) => p.id === media.id) ? (
-                      <div className="text-white flex z-[101] justify-center items-center text-[14px] font-[500] w-[24px] h-[24px] rounded-full bg-[#C8FF00] absolute -bottom-[10px] -end-[10px]">
+                      <div className="text-black flex z-[101] justify-center items-center text-[14px] font-[500] w-[24px] h-[24px] rounded-full bg-[#C8FF00] absolute -bottom-[10px] -end-[10px]">
                         {selected.findIndex((z: any) => z.id === media.id) + 1}
                       </div>
                     ) : (
@@ -615,7 +615,7 @@ export const MediaBox: FC<{
               <button
                 onClick={standalone ? () => {} : addMedia}
                 disabled={selected.length === 0}
-                className="cursor-pointer text-white disabled:opacity-80 disabled:cursor-not-allowed h-[52px] px-[20px] items-center justify-center bg-[#C8FF00] flex rounded-[10px]"
+                className="cursor-pointer text-black disabled:opacity-80 disabled:cursor-not-allowed h-[52px] px-[20px] items-center justify-center bg-[#C8FF00] flex rounded-[10px]"
               >
                 {t('add_selected_media', 'Add selected media')}
               </button>
@@ -983,8 +983,8 @@ export const MediaComponent: FC<{
         </div>
       )}
       <div className="flex gap-[5px]">
-        <Button onClick={showModal}>{t('select', 'Select')}</Button>
-        <Button onClick={showDesignModal} className="!bg-customColor45">
+        <Button onClick={showModal} className="!text-black">{t('select', 'Select')}</Button>
+        <Button onClick={showDesignModal} className="!bg-customColor45 !text-black">
           {t('editor', 'Editor')}
         </Button>
         <Button secondary={true} onClick={clearMedia}>

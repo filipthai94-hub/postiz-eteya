@@ -103,7 +103,7 @@ export const DelayComponent: FC<{
                 key={option.value}
                 className={clsx(
                   'h-[32px] flex items-center justify-center rounded-[4px] cursor-pointer hover:bg-newBgColor text-[13px]',
-                  currentDelay === option.value && 'bg-[#C8FF00] text-white hover:bg-[#C8FF00]'
+                  currentDelay === option.value && 'bg-[#C8FF00] text-black hover:bg-[#C8FF00]'
                 )}
               >
                 {option.label}
@@ -133,7 +133,7 @@ export const DelayComponent: FC<{
                     setCustomValue('');
                   }
                 }}
-                className="h-[32px] px-[10px] rounded-[4px] bg-[#C8FF00] text-white text-[12px] font-[600] hover:bg-[#C8FF00]/80"
+                className="h-[32px] px-[10px] rounded-[4px] bg-[#C8FF00] text-black text-[12px] font-[600] hover:bg-[#C8FF00]/80"
               >
                 Set
               </button>

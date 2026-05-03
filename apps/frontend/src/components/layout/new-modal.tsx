@@ -346,6 +346,7 @@ export const DecisionModal: FC<{
             resolution(true);
             closeCurrent();
           }}
+          className="!text-black"
         >
           {approveLabel}
         </Button>
@@ -355,6 +356,7 @@ export const DecisionModal: FC<{
               resolution(false);
               closeCurrent();
             }}
+            className="!text-black"
           >
             {cancelLabel}
           </Button>
