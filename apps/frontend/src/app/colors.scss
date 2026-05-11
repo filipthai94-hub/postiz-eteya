@@ -3,8 +3,8 @@
     --new-back-drop: #000;
     --new-settings: #242323;
     --new-border: rgba(255,255,255,0.10);
-    --new-bgColor: #07080A;
-    --new-bgColorInner: #101217;
+    --new-bgColor: #070A0E;
+    --new-bgColorInner: #10161D;
     --new-sep: rgba(255,255,255,0.06);
     --new-bgLineColor: #212121;
     --new-textItemFocused: #1a1919;
@@ -14,13 +14,13 @@
     --new-blockSeparator: #272626;
     --new-btn-simple: #151820;
     --new-btn-text: #ffffff;
-    --new-btn-primary: #C8FF00;
-    --new-ai-btn: #d82d7e;
+    --new-btn-primary: #A6D954;
+    --new-ai-btn: #A6D954;
     --new-box-hover: #201f1f;
     --new-table-border: #2b2b2b;
     --new-table-header: #1e1d1d;
     --new-table-text: #9c9c9c;
-    --new-table-text-focused: #C8FF00;
+    --new-table-text-focused: #A6D954;
     --new-small-strips: #191818;
     --new-big-strips: #161515;
     --new-col-color: #2c2b2b;
@@ -58,13 +58,13 @@
     --new-blockSeparator: #f2f2f4;
     --new-btn-simple: #eceef1;
     --new-btn-text: #0e0e0e;
-    --new-btn-primary: #C8FF00;
-    --new-ai-btn: #d82d7e;
+    --new-btn-primary: #A6D954;
+    --new-ai-btn: #A6D954;
     --new-box-hover: #f4f6f8;
     --new-table-border: #e7e9eb;
     --new-table-header: #f5f7f9;
     --new-table-text: #777b7f;
-    --new-table-text-focused: #C8FF00;
+    --new-table-text-focused: #A6D954;
     --new-small-strips: #191818;
     --new-big-strips: #f5f7f9;
     --new-col-color: #eff1f3;
@@ -98,14 +98,14 @@
 
 :root {
   .dark {
-    --color-primary: #07080A;
-    --color-secondary: #0B0D10;
+    --color-primary: #070A0E;
+    --color-secondary: #0B0F14;
     --color-text: #ffffff;
-    --color-third: #101217;
-    --color-forth: #C8FF00;
+    --color-third: #10161D;
+    --color-forth: #A6D954;
     --color-fifth: var(--new-bgLineColor);
     --color-sixth: var(--new-table-header);
-    --color-seventh: #C8FF00;
+    --color-seventh: #A6D954;
     --color-gray: #6E7580;
     --color-input: var(--new-table-header);
     --color-input-text: #A5ABB5;
@@ -113,10 +113,10 @@
     --color-custom1: #324264;
     --color-custom2: #141c2c;
     --color-custom3: #0b0f1c;
-    --color-custom4: #C8FF00;
+    --color-custom4: #A6D954;
     --color-custom5: #e9e9f1;
     --color-custom6: var(--new-bgLineColor);
-    --color-custom7: #C8FF00;
+    --color-custom7: #A6D954;
     --color-custom8: var(--new-btn-simple);
     --color-custom9: #354258;
     --color-custom10: #e4b895;
@@ -133,13 +133,13 @@
     --color-custom21: #506490;
     --color-custom22: #b91c1c;
     --color-custom23: #000000;
-    --color-custom24: #eaff00;
+    --color-custom24: #A6D954;
     --color-custom25: #2e3336;
     --color-custom26: #1d9bf0;
     --color-custom27: #71767b;
     --color-custom28: #b69dec;
     --color-custom29: #1B1F29;
-    --color-custom30: #A8D600;
+    --color-custom30: #A6D954;
     --color-custom31: #0f1727;
     --color-custom32: #181818;
     --color-custom33: #f2f2f2;
@@ -154,13 +154,13 @@
     --color-custom42: #32d583;
     --color-custom43: #425379;
     --color-custom44: #283450;
-    --color-custom45: #C8FF00;
+    --color-custom45: #A6D954;
     --color-custom46: #658dac;
     --color-custom47: #182034;
     --color-custom48: #080b14;
     --color-custom49: #0a0b14;
     --color-custom50: #262373;
-    --color-custom51: #C8FF00;
+    --color-custom51: #A6D954;
     --color-custom52: #eaeef2;
     --color-custom53: #7c7d86;
     --color-custom54: #afb8c1;
@@ -172,10 +172,10 @@
     --color-secondary: #fff;
     --color-text: #000;
     --color-third: white;
-    --color-forth: #C8FF00;
+    --color-forth: #A6D954;
     --color-fifth: var(--new-bgLineColor);
     --color-sixth: var(--new-table-header);
-    --color-seventh: #C8FF00;
+    --color-seventh: #A6D954;
     --color-gray: #8c8c8c;
     --color-input: var(--new-table-header);
     --color-input-text: #64748b;
@@ -183,10 +183,10 @@
     --color-custom1: #324264;
     --color-custom2: #f8f8f8;
     --color-custom3: #fff;
-    --color-custom4: #C8FF00;
+    --color-custom4: #A6D954;
     --color-custom5: #e9e9f1;
     --color-custom6: var(--new-bgLineColor);
-    --color-custom7: #C8FF00;
+    --color-custom7: #A6D954;
     --color-custom8: var(--new-btn-simple);
     --color-custom9: #354258;
     --color-custom10: #e4b895;
@@ -203,7 +203,7 @@
     --color-custom21: #506490;
     --color-custom22: #b91c1c;
     --color-custom23: #f5f5f5;
-    --color-custom24: #eaff00;
+    --color-custom24: #A6D954;
     --color-custom25: #2e3336;
     --color-custom26: #1d9bf0;
     --color-custom27: #71767b;
@@ -224,17 +224,88 @@
     --color-custom42: #32d583;
     --color-custom43: #425379;
     --color-custom44: #283450;
-    --color-custom45: #C8FF00;
+    --color-custom45: #A6D954;
     --color-custom46: #658dac;
     --color-custom47: #182034;
     --color-custom48: #fff;
     --color-custom49: #0a0b14;
     --color-custom50: #262373;
-    --color-custom51: #C8FF00;
+    --color-custom51: #A6D954;
     --color-custom52: #eaeef2;
     --color-custom53: #7c7d86;
     --color-custom54: #afb8c1;
     --color-custom55: #d5d7e1;
     --color-modalCustom: transparent;
+  }
+}
+
+/* ============================================================================
+ * ETEYA DESIGN-SYSTEM TOKENS (Phase Rebrand Fas 1, 2026-05-10)
+ * Source: eteya-os/07-design-system/eteya-dashboard-blueprint-handoff.md
+ * Single-File Agent Contract — Implementation Snapshot v1
+ * ============================================================================
+ */
+:root {
+  .dark {
+    /* Surfaces */
+    --et-bg-canvas: #070A0E;
+    --et-bg-base: #0B0F14;
+    --et-surface-1: #10161D;
+    --et-surface-2: #141B24;
+    --et-surface-3: #1B2430;
+    --et-surface-inset: #0A0D11;
+    --et-surface-overlay: #111821;
+
+    /* Text */
+    --et-text-primary: #F7FAF4;
+    --et-text-secondary: #CBD5C0;
+    --et-text-muted: #8B9686;
+    --et-text-disabled: #5A6257;
+    --et-text-inverse: #071005;
+
+    /* Lime (signal, not theme) */
+    --et-lime-core: #A6D954;
+    --et-lime-soft: #B8CD83;
+    --et-lime-strong: #D5EE8F;
+    --et-lime-deep: #9FBC3D;
+    --et-lime-border: rgba(166, 217, 84, 0.42);
+    --et-lime-focus: rgba(166, 217, 84, 0.45);
+    --et-lime-glow: rgba(166, 217, 84, 0.07);
+    --et-lime-wash: rgba(166, 217, 84, 0.065);
+
+    /* Borders */
+    --et-border-subtle: rgba(255, 255, 255, 0.06);
+    --et-border-default: rgba(255, 255, 255, 0.10);
+    --et-border-strong: rgba(255, 255, 255, 0.18);
+    --et-border-active: rgba(166, 217, 84, 0.42);
+    --et-border-danger: rgba(255, 92, 92, 0.56);
+
+    /* Semantic */
+    --et-success: #32D583;
+    --et-warning: #FBBF24;
+    --et-danger: #FF5C5C;
+    --et-info: #6AAEFF;
+
+    /* Material recipes */
+    --et-canvas-depth: radial-gradient(circle at 18% 0%, rgba(166, 217, 84, 0.035), transparent 32%);
+    --et-workspace-bg: linear-gradient(180deg, rgba(16, 22, 29, 0.78), rgba(8, 12, 17, 0.92));
+    --et-panel-bg: rgba(16, 22, 29, 0.72);
+    --et-panel-border: rgba(255, 255, 255, 0.08);
+    --et-divider: rgba(255, 255, 255, 0.075);
+    --et-row-hover: rgba(255, 255, 255, 0.035);
+    --et-row-selected: rgba(255, 255, 255, 0.045);
+    --et-row-selected-border: rgba(255, 255, 255, 0.11);
+
+    /* Dashboard CTA (default, dämpad) */
+    --et-cta-bg: rgba(255, 255, 255, 0.045);
+    --et-cta-border: rgba(166, 217, 84, 0.38);
+    --et-cta-hover: rgba(166, 217, 84, 0.065);
+    --et-cta-pressed: rgba(166, 217, 84, 0.085);
+
+    /* Shadows / elevation */
+    --et-shadow-contact: 0 2px 5px rgba(0, 0, 0, 0.34);
+    --et-shadow-panel: 0 18px 48px rgba(0, 0, 0, 0.34);
+    --et-shadow-modal: 0 28px 80px rgba(0, 0, 0, 0.52);
+    --et-rim-light: inset 0 1px 0 rgba(255, 255, 255, 0.10);
   }
 }
