@@ -154,11 +154,15 @@ export function RegisterAfter({
               {t('sign_up', 'Sign Up')}
             </h1>
           </div>
-          <div className="text-[13px] mt-[20px] mb-[8px] text-etTextMuted">
-            {t('continue_with', 'Continue With')}
-          </div>
+          {/* Eteya feature-flag: SSO/OAuth-providers (Authentik/Google/GitHub) dolda
+              tills vi har enterprise-kunder som behöver det. Toggle: false → true */}
+          {false && (
+            <div className="text-[13px] mt-[20px] mb-[8px] text-etTextMuted">
+              {t('continue_with', 'Continue With')}
+            </div>
+          )}
           <div className="flex flex-col">
-            {!isAfterProvider &&
+            {false && !isAfterProvider &&
               (!isGeneral ? (
                 <GithubProvider />
               ) : (
@@ -172,7 +176,7 @@ export function RegisterAfter({
                   {billingEnabled && <WalletProvider />}
                 </div>
               ))}
-            {!isAfterProvider && (
+            {false && !isAfterProvider && (
               <div className="h-[16px] mb-[12px] mt-[12px] relative">
                 <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
                 <div
