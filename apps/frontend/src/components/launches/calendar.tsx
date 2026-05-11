@@ -1029,8 +1029,8 @@ const CalendarItem: FC<{
       ref={dragRef}
       className={clsx(
         'w-full flex h-full flex-1 flex-col group',
-        'relative',
-        state === 'ERROR' && 'rounded-[10px] ring-2 ring-red-500'
+        'relative border-l-[3px] border-etLimeCore rounded-[10px] overflow-hidden bg-newSettings',
+        state === 'ERROR' && '!border-red-500 ring-2 ring-red-500'
       )}
       style={{
         opacity,
@@ -1047,7 +1047,7 @@ const CalendarItem: FC<{
       )}
       <div
         className={clsx(
-          'text-black text-[11px] max-h-[24px] h-[24px] min-h-[24px] w-full rounded-tr-[10px] rounded-tl-[10px] flex items-center justify-center gap-[10px] px-[5px] bg-btnPrimary'
+          'text-textColor text-[11px] max-h-[24px] h-[24px] min-h-[24px] w-full flex items-center justify-center gap-[10px] px-[5px] bg-transparent border-b border-etBorderSubtle'
         )}
         style={{
           backgroundColor: post?.tags?.[0]?.tag?.color,
@@ -1128,8 +1128,8 @@ const CalendarItem: FC<{
       <div
         onClick={editPost}
         className={clsx(
-          'gap-[5px] w-full flex h-full flex-1 rounded-br-[10px] rounded-bl-[10px] p-[8px] text-[14px] bg-newColColor',
-          'relative',
+          'gap-[5px] w-full flex h-full flex-1 p-[8px] text-[14px] bg-transparent',
+          'relative cursor-pointer hover:bg-boxHover transition-colors',
           isBeforeNow && '!grayscale'
         )}
       >

@@ -126,10 +126,15 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                           <NotificationComponent />
                         </div>
                       </div>
-                      {/* PAGE-TITLE-BAR: Title för sidan (sub-header) */}
-                      <div className="flex bg-newBgColorInner h-[60px] px-[20px] items-center">
-                        <div className="text-[24px] font-[600] flex flex-1">
+                      {/* PAGE-TITLE-BAR med Nova-style command-bar status-strip (Fas 3A) */}
+                      <div className="flex bg-newBgColorInner h-[72px] px-[20px] items-center gap-[20px]">
+                        <div className="text-[36px] font-[700] flex flex-1 tracking-tight leading-tight">
                           <Title />
+                        </div>
+                        {/* Status-strip: minimalist Nova command-bar (Fas 3A) */}
+                        <div className="flex items-center gap-[8px] text-[11px] font-[650] text-etTextMuted uppercase tracking-[0.08em] whitespace-nowrap">
+                          <span className="w-[6px] h-[6px] rounded-full bg-etLimeCore" />
+                          <span>LIVE · Synkat</span>
                         </div>
                       </div>
                       <div className="flex flex-1 gap-[1px]">{children}</div>
