@@ -1,7 +1,8 @@
-export const fallbackLng = 'en';
+// Eteya: defaultar till svenska (primärt språk för Eteya Suite)
+export const fallbackLng = 'sv';
 export const languages = [
   fallbackLng,
-  'sv', // Eteya — svenska (primärt språk för Eteya Suite)
+  'en',
   'he',
   'ru',
   'zh',
