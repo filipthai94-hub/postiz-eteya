@@ -6,19 +6,22 @@ import { useVariables } from '@gitroom/react/helpers/variable.context';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
 import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { MenuItem } from '@gitroom/frontend/components/new-layout/menu-item';
-// Eteya: egna SVG-ikoner för brandade nav-items (Calendar, Generate, Settings)
-import { EteyaIcon } from '@gitroom/frontend/components/new-layout/eteya-icon';
-// Lucide kvar för utility-ikoner utan Eteya-motsvarighet (Bot, BarChart3, Image, Plug, Puzzle, Video, Users, CreditCard)
+// Phosphor Icons Light — Eteya blueprint utility-icon-system (2026-05-11 Fas 2.1)
+// Blueprint: "Phosphor används som utility icon-system. Lucide är legacy/fallback."
+// Light weight som standard, Regular bara när kontrasten behöver bli tydligare.
 import {
-  Bot,
-  BarChart3,
+  CalendarBlank,
+  Sparkle,
+  Robot,
+  ChartBar,
   Image,
   Plug,
-  Puzzle,
-  Video,
+  PuzzlePiece,
+  VideoCamera,
   Users,
   CreditCard,
-} from 'lucide-react';
+  Gear,
+} from '@phosphor-icons/react';
 
 interface MenuItemInterface {
   name: string;
@@ -50,37 +53,37 @@ export const useMenuItem = () => {
   const firstMenu = [
     {
       name: isGeneral ? t('calendar', 'Calendar') : t('launches', 'Launches'),
-      icon: <EteyaIcon name="calendar" size={21} />,
+      icon: <CalendarBlank size={21} weight="light" />,
       path: '/launches',
     },
     {
       name: t('generate', 'Generera'),
-      icon: <EteyaIcon name="sparkle" size={21} />,
+      icon: <Sparkle size={21} weight="light" />,
       path: '/generate',
     },
     {
       name: 'Agent',
-      icon: <Bot size={21} strokeWidth={1.8} />,
+      icon: <Robot size={21} weight="light" />,
       path: '/agents',
     },
     {
       name: t('analytics', 'Analytics'),
-      icon: <BarChart3 size={21} strokeWidth={1.8} />,
+      icon: <ChartBar size={21} weight="light" />,
       path: '/analytics',
     },
     {
       name: t('media', 'Media'),
-      icon: <Image size={21} strokeWidth={1.8} />,
+      icon: <Image size={21} weight="light" />,
       path: '/media',
     },
     {
       name: t('plugs', 'Plugs'),
-      icon: <Plug size={21} strokeWidth={1.8} />,
+      icon: <Plug size={21} weight="light" />,
       path: '/plugs',
     },
     {
       name: t('integrations', 'Integrations'),
-      icon: <Puzzle size={21} strokeWidth={1.8} />,
+      icon: <PuzzlePiece size={21} weight="light" />,
       path: '/third-party',
     },
   ] satisfies MenuItemInterface[] as MenuItemInterface[];
@@ -88,7 +91,7 @@ export const useMenuItem = () => {
   const secondMenu = [
     {
       name: t('UGC', 'UGC'),
-      icon: <Video size={21} strokeWidth={1.8} />,
+      icon: <VideoCamera size={21} weight="light" />,
       path: '#',
       role: ['ADMIN', 'SUPERADMIN', 'USER'],
       requireBilling: true,
@@ -96,21 +99,21 @@ export const useMenuItem = () => {
     },
     {
       name: t('affiliate', 'Affiliate'),
-      icon: <Users size={21} strokeWidth={1.8} />,
+      icon: <Users size={21} weight="light" />,
       path: 'https://affiliate.postiz.com',
       role: ['ADMIN', 'SUPERADMIN', 'USER'],
       requireBilling: true,
     },
     {
       name: t('billing', 'Billing'),
-      icon: <CreditCard size={21} strokeWidth={1.8} />,
+      icon: <CreditCard size={21} weight="light" />,
       path: '/billing',
       role: ['ADMIN', 'SUPERADMIN'],
       requireBilling: true,
     },
     {
       name: t('settings', 'Settings'),
-      icon: <EteyaIcon name="settings" size={21} />,
+      icon: <Gear size={21} weight="light" />,
       path: '/settings',
       role: ['ADMIN', 'USER', 'SUPERADMIN'],
     },
