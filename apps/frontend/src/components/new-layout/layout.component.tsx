@@ -101,7 +101,7 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                   <div className="flex-1 flex gap-[8px]">
                     <Support />
                     {/* Eteya-iteration-1: vänster sidebar borttagen, meny flyttad till top-bar */}
-                    <div className="flex-1 bg-newBgLineColor rounded-[12px] overflow-hidden flex flex-col gap-[1px] blurMe">
+                    <div className="flex-1 bg-newBgColorInner rounded-[12px] overflow-hidden flex flex-col gap-[1px] blurMe">
                       {/* TOP-BAR: Logo + TopMenu (horizontal) + Status icons */}
                       <div className="flex bg-newBgColorInner h-[80px] px-[20px] items-center gap-[20px]">
                         <div className="flex-shrink-0">

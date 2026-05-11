@@ -281,8 +281,8 @@ export const GenerateContent: FC = () => {
   const selectedCount = PLATFORMS.filter((p) => selected[p]).length;
 
   return (
-    <div className="flex flex-1 flex-col p-[32px] gap-[24px] max-w-[920px] mx-auto w-full bg-newBgColorInner rounded-[12px]">
-      {/* Header — Mockup A: minimalist Nova decision-center (Fas 3.1) */}
+    <div className="flex flex-1 flex-col p-[32px] gap-[24px] max-w-[920px] mx-auto w-full">
+      {/* Header — Blueprint: "stora sammanhängande ytor" + "rader, sektioner, dividers FÖRE kort" */}
       <div className="flex items-start gap-[16px]">
         <div className="flex-1 flex flex-col gap-[8px]">
           {/* Eyebrow — Nova command-bar style */}
