@@ -95,7 +95,7 @@ export const MissingReleaseModal: FC<{
             onClick={() => setSelected(item.id)}
             className={`cursor-pointer rounded-[8px] overflow-hidden border-2 transition-all ${
               selected === item.id
-                ? 'border-[#C8FF00] scale-[1.02]'
+                ? 'border-[#A6D954] scale-[1.02]'
                 : 'border-transparent hover:border-textColor/20'
             }`}
           >

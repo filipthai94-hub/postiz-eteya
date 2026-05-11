@@ -103,7 +103,7 @@ export const DelayComponent: FC<{
                 key={option.value}
                 className={clsx(
                   'h-[32px] flex items-center justify-center rounded-[4px] cursor-pointer hover:bg-newBgColor text-[13px]',
-                  currentDelay === option.value && 'bg-[#C8FF00] text-black hover:bg-[#C8FF00]'
+                  currentDelay === option.value && 'bg-[#A6D954] text-black hover:bg-[#A6D954]'
                 )}
               >
                 {option.label}
@@ -120,8 +120,8 @@ export const DelayComponent: FC<{
                 onClick={(e) => e.stopPropagation()}
                 placeholder="Custom min"
                 className={clsx(
-                  'flex-1 w-full h-[32px] px-[8px] rounded-[4px] bg-newBgColor border text-[13px] outline-none focus:border-[#C8FF00]',
-                  isCustomDelay ? 'border-[#C8FF00]' : 'border-newTextColor/10'
+                  'flex-1 w-full h-[32px] px-[8px] rounded-[4px] bg-newBgColor border text-[13px] outline-none focus:border-[#A6D954]',
+                  isCustomDelay ? 'border-[#A6D954]' : 'border-newTextColor/10'
                 )}
               />
               <button
@@ -133,7 +133,7 @@ export const DelayComponent: FC<{
                     setCustomValue('');
                   }
                 }}
-                className="h-[32px] px-[10px] rounded-[4px] bg-[#C8FF00] text-black text-[12px] font-[600] hover:bg-[#C8FF00]/80"
+                className="h-[32px] px-[10px] rounded-[4px] bg-[#A6D954] text-black text-[12px] font-[600] hover:bg-[#A6D954]/80"
               >
                 Set
               </button>

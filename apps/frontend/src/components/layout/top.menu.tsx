@@ -6,9 +6,10 @@ import { useVariables } from '@gitroom/react/helpers/variable.context';
 import { useT } from '@gitroom/react/translation/get.transation.service.client';
 import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { MenuItem } from '@gitroom/frontend/components/new-layout/menu-item';
-// Eteya: Lucide-ikoner (matchar Nova-dashboard)
+// Eteya: egna SVG-ikoner för brandade nav-items (Calendar, Generate, Settings)
+import { EteyaIcon } from '@gitroom/frontend/components/new-layout/eteya-icon';
+// Lucide kvar för utility-ikoner utan Eteya-motsvarighet (Bot, BarChart3, Image, Plug, Puzzle, Video, Users, CreditCard)
 import {
-  Calendar,
   Bot,
   BarChart3,
   Image,
@@ -17,7 +18,6 @@ import {
   Video,
   Users,
   CreditCard,
-  Settings,
 } from 'lucide-react';
 
 interface MenuItemInterface {
@@ -50,8 +50,13 @@ export const useMenuItem = () => {
   const firstMenu = [
     {
       name: isGeneral ? t('calendar', 'Calendar') : t('launches', 'Launches'),
-      icon: <Calendar size={21} strokeWidth={1.8} />,
+      icon: <EteyaIcon name="calendar" size={21} />,
       path: '/launches',
+    },
+    {
+      name: t('generate', 'Generera'),
+      icon: <EteyaIcon name="sparkle" size={21} />,
+      path: '/generate',
     },
     {
       name: 'Agent',
@@ -105,7 +110,7 @@ export const useMenuItem = () => {
     },
     {
       name: t('settings', 'Settings'),
-      icon: <Settings size={21} strokeWidth={1.8} />,
+      icon: <EteyaIcon name="settings" size={21} />,
       path: '/settings',
       role: ['ADMIN', 'USER', 'SUPERADMIN'],
     },

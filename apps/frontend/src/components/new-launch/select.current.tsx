@@ -111,7 +111,7 @@ export const SelectCurrent: FC = () => {
               'cursor-pointer flex gap-[8px] rounded-[8px] w-[40px] h-[40px] justify-center items-center bg-newBgLineColor',
               current !== 'global'
                 ? 'text-[#A3A3A3]'
-                : 'border border-[#C8FF00] text-[#C8FF00]'
+                : 'border border-[#A6D954] text-[#A6D954]'
             )}
           >
             <div>
