@@ -281,13 +281,10 @@ export const GenerateContent: FC = () => {
   const selectedCount = PLATFORMS.filter((p) => selected[p]).length;
 
   return (
-    <div className="flex flex-1 flex-col p-[24px] gap-[24px] max-w-[920px] mx-auto w-full">
-      {/* Header — Decision-Center pattern (Fas 3C) */}
+    <div className="flex flex-1 flex-col p-[32px] gap-[24px] max-w-[920px] mx-auto w-full">
+      {/* Header — Mockup A: minimalist Nova decision-center (Fas 3.1) */}
       <div className="flex items-start gap-[16px]">
-        <div className="w-[48px] h-[48px] rounded-[10px] bg-etLimeCore flex items-center justify-center flex-shrink-0 mt-[4px]">
-          <Sparkle size={26} weight="fill" color="#071005" />
-        </div>
-        <div className="flex-1 flex flex-col gap-[6px]">
+        <div className="flex-1 flex flex-col gap-[8px]">
           {/* Eyebrow — Nova command-bar style */}
           <div className="text-[11px] font-[650] text-etTextMuted uppercase tracking-[0.08em]">
             BESLUTSCENTER · 1 ÄMNE → 6 PLATTFORMAR
@@ -296,7 +293,7 @@ export const GenerateContent: FC = () => {
           <h1 className="text-[40px] font-[700] leading-[1.1] tracking-tight">
             {t('generate_content', 'Generera innehåll')}
           </h1>
-          <p className="text-[14px] text-etTextMuted">
+          <p className="text-[14px] text-etTextMuted leading-[1.5] max-w-[640px]">
             {stage === 'idle' &&
               'Skriv ett ämne. Få 6 plattform-versioner att granska innan du schemalägger.'}
             {stage === 'previewing' && 'Genererar preview… (~30 sek)'}
@@ -309,18 +306,19 @@ export const GenerateContent: FC = () => {
         {stage !== 'idle' && stage !== 'previewing' && stage !== 'approving' && (
           <button
             onClick={handleReset}
-            className="text-[12px] text-[#A0A0A0] hover:text-white"
+            className="text-[11px] font-[650] text-etTextMuted hover:text-etTextPrimary uppercase tracking-[0.08em] transition-colors"
           >
             Börja om
           </button>
         )}
       </div>
 
-      {/* STAGE: idle (form) */}
+      {/* STAGE: idle (form) — Mockup A Single-Column Refined */}
       {stage === 'idle' && (
-        <form onSubmit={handlePreview} className="flex flex-col gap-[16px]">
-          <div className="flex flex-col gap-[8px]">
-            <label htmlFor="topic" className="text-[14px] font-[600]">
+        <form onSubmit={handlePreview} className="flex flex-col gap-[24px]">
+          {/* Topic input */}
+          <div className="flex flex-col gap-[10px]">
+            <label htmlFor="topic" className="text-[11px] font-[650] text-etTextMuted uppercase tracking-[0.08em]">
               Skriv ditt ämne
             </label>
             <textarea
@@ -329,27 +327,59 @@ export const GenerateContent: FC = () => {
               onChange={(e) => setTopic(e.target.value)}
               placeholder='T.ex. "Det som tar dig 3 timmar tar mig 3 minuter. Vi byggde vår egen content-cockpit åt Eteya."'
               rows={6}
-              className="w-full p-[16px] rounded-[10px] bg-[#1A1919] border border-[#2b2a2a] text-white placeholder:text-[#666] focus:border-[#A6D954] focus:outline-none resize-none"
+              className="w-full p-[16px] rounded-[10px] bg-newBgColorInner border border-etBorderDefault text-etTextPrimary placeholder:text-etTextMuted focus:border-etLimeCore focus:outline-none resize-none transition-colors"
               maxLength={500}
               autoFocus
             />
-            <div className="text-[12px] text-[#666] text-right">
+            <div className="text-[12px] text-etTextMuted text-right">
               {topic.length}/500
             </div>
           </div>
-          <button
-            type="submit"
-            disabled={!topic.trim()}
-            className="self-start flex items-center gap-[8px] px-[24px] py-[12px] rounded-[10px] bg-[#A6D954] text-black font-[700] hover:bg-[#a8d800] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            <PencilSimple size={18} weight="light" />
-            PREVIEW (~30s, ~0.50 kr)
-            <ArrowRight size={18} weight="light" />
-          </button>
-          <p className="text-[12px] text-[#666]">
-            Preview kostar ~0.50 kr. Du betalar resten (~7.50 kr) först när du
-            klickar "Approve & Schedule".
-          </p>
+
+          {/* Divider */}
+          <div className="h-px bg-etBorderSubtle" />
+
+          {/* Platform chips — Nova-style status-indicators */}
+          <div className="flex flex-col gap-[10px]">
+            <div className="text-[11px] font-[650] text-etTextMuted uppercase tracking-[0.08em]">
+              Var publiceras det?
+            </div>
+            <div className="flex flex-wrap gap-[8px]">
+              {PLATFORMS.map((p) => (
+                <div
+                  key={p}
+                  className="flex items-center gap-[6px] px-[12px] py-[6px] rounded-[6px] bg-newBgColorInner border border-etBorderSubtle text-[12px] font-[500] text-etTextSecondary"
+                >
+                  <span className="w-[5px] h-[5px] rounded-full bg-etLimeCore" />
+                  {p.charAt(0).toUpperCase() + p.slice(1)}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-etBorderSubtle" />
+
+          {/* Bottom-bar: meta vänster + CTA höger */}
+          <div className="flex items-center justify-between gap-[16px]">
+            <div className="flex flex-col gap-[2px]">
+              <div className="text-[13px] text-etTextSecondary font-[500]">
+                6 plattformar · ~3 min · ~7.50 kr totalt
+              </div>
+              <div className="text-[11px] text-etTextMuted">
+                Preview kostar bara ~0.50 kr. Resten betalas vid Approve.
+              </div>
+            </div>
+            <button
+              type="submit"
+              disabled={!topic.trim()}
+              className="flex items-center gap-[10px] px-[24px] py-[12px] rounded-[10px] bg-etLimeCore text-etTextInverse font-[650] text-[14px] tracking-[0.02em] hover:bg-etLimeDeep disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+            >
+              <span>Generera preview</span>
+              <span className="text-[11px] font-[500] opacity-70">~0.50 kr</span>
+              <ArrowRight size={16} weight="bold" />
+            </button>
+          </div>
         </form>
       )}
 
