@@ -20,23 +20,20 @@ export default async function AuthLayout({
   const t = await getT();
 
   return (
-    <div className="bg-etBgCanvas flex flex-1 min-h-screen w-screen text-etTextPrimary items-center justify-center px-[24px]">
+    <div className="bg-etBgCanvas flex flex-1 min-h-screen w-screen text-etTextPrimary items-center justify-center px-[16px] py-[24px]">
       <ReturnUrlComponent />
 
       {/* Single-panel centered (Vercel/Linear-style) */}
-      <div className="w-full max-w-[440px] flex flex-col gap-[32px]">
+      <div className="w-full max-w-[420px] flex flex-col gap-[20px]">
         {/* Eteya brand-mark centrerat */}
         <div className="flex justify-center">
           <LogoTextComponent />
         </div>
 
-        {/* Tagline — Eteya "Premium operativ intelligens" */}
-        <div className="text-center flex flex-col gap-[8px]">
+        {/* Eyebrow — Eteya Social Manager */}
+        <div className="text-center">
           <div className="text-[11px] font-[650] text-etTextMuted uppercase tracking-[0.12em]">
             Eteya Social Manager
-          </div>
-          <div className="text-[15px] text-etTextSecondary leading-[1.5]">
-            1 ämne in. 6 plattformar ut. 3 minuter.
           </div>
         </div>
 
