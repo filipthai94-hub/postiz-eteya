@@ -8,24 +8,25 @@ export const LoginWithOidc = () => {
   const { isGeneral, genericOauth } = useVariables();
   const t = useT();
 
-  if (!(isGeneral && genericOauth)) {
-    return null;
+  // Eteya feature-flag: OAuth-providers dolda tills enterprise SSO behövs.
+  // Matchar register.tsx + login.tsx {false &&}-pattern. Toggle: false → isGeneral && genericOauth.
+  if (false && isGeneral && genericOauth) {
+    return (
+      <>
+        <div>
+          <h1 className="text-center text-3xl font-bold text-start mb-4 cursor-pointer">
+            {t('sign_up', 'Sign Up')}
+          </h1>
+        </div>
+        <OauthProvider />
+        <div className="h-[20px] mb-[24px] mt-[24px] relative">
+          <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
+          <div
+            className={`absolute z-[1] justify-center items-center w-full start-0 top-0 flex`}
+          />
+        </div>
+      </>
+    );
   }
-
-  return (
-    <>
-      <div>
-        <h1 className="text-center text-3xl font-bold text-start mb-4 cursor-pointer">
-          {t('sign_up', 'Sign Up')}
-        </h1>
-      </div>
-      <OauthProvider />
-      <div className="h-[20px] mb-[24px] mt-[24px] relative">
-        <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
-        <div
-          className={`absolute z-[1] justify-center items-center w-full start-0 top-0 flex`}
-        />
-      </div>
-    </>
-  );
+  return null;
 };

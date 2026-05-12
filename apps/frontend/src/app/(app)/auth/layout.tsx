@@ -37,8 +37,8 @@ export default async function AuthLayout({
           </div>
         </div>
 
-        {/* Auth form (children: register or login) */}
-        <div className="flex">{children}</div>
+        {/* Auth form (children: register or login) — flex-col så disabled-state med flera siblings stackas korrekt */}
+        <div className="flex flex-col w-full">{children}</div>
       </div>
     </div>
   );
