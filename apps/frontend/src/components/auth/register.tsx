@@ -150,15 +150,19 @@ export function RegisterAfter({
       <form className="flex-1 flex" onSubmit={form.handleSubmit(onSubmit)}>
         <div className="flex flex-col flex-1">
           <div>
-            <h1 className="text-[40px] font-[500] -tracking-[0.8px] text-start cursor-pointer">
+            <h1 className="text-[28px] font-[600] -tracking-[0.4px] text-start cursor-pointer">
               {t('sign_up', 'Sign Up')}
             </h1>
           </div>
-          <div className="text-[14px] mt-[32px] mb-[12px]">
-            {t('continue_with', 'Continue With')}
-          </div>
+          {/* Eteya feature-flag: SSO/OAuth-providers (Authentik/Google/GitHub) dolda
+              tills vi har enterprise-kunder som behöver det. Toggle: false → true */}
+          {false && (
+            <div className="text-[13px] mt-[20px] mb-[8px] text-etTextMuted">
+              {t('continue_with', 'Continue With')}
+            </div>
+          )}
           <div className="flex flex-col">
-            {!isAfterProvider &&
+            {false && !isAfterProvider &&
               (!isGeneral ? (
                 <GithubProvider />
               ) : (
@@ -172,17 +176,17 @@ export function RegisterAfter({
                   {billingEnabled && <WalletProvider />}
                 </div>
               ))}
-            {!isAfterProvider && (
-              <div className="h-[20px] mb-[24px] mt-[24px] relative">
+            {false && !isAfterProvider && (
+              <div className="h-[16px] mb-[12px] mt-[12px] relative">
                 <div className="absolute w-full h-[1px] bg-fifth top-[50%] -translate-y-[50%]" />
                 <div
                   className={`absolute z-[1] justify-center items-center w-full start-0 -top-[4px] flex`}
                 >
-                  <div className="px-[16px]">{t('or', 'or')}</div>
+                  <div className="px-[16px] text-[12px] text-etTextMuted bg-etBgCanvas">{t('or', 'or')}</div>
                 </div>
               </div>
             )}
-            <div className="flex flex-col gap-[12px]">
+            <div className="flex flex-col gap-[8px]">
               <div className="text-textColor">
                 {!isAfterProvider && (
                   <>
@@ -219,34 +223,36 @@ export function RegisterAfter({
                 )}
                 &nbsp;
                 <a
-                  href={`https://postiz.com/terms`}
+                  href={`https://eteya.ai/sv/villkor`}
                   className="underline hover:font-bold"
                   rel="nofollow"
+                  target="_blank"
                 >
-                  {t('terms_of_service', 'Terms of Service')}
+                  {t('terms_of_service', 'Användarvillkor')}
                 </a>
                 &nbsp;
-                {t('and', 'and')}&nbsp;
+                {t('and', 'och')}&nbsp;
                 <a
-                  href={`https://postiz.com/privacy`}
+                  href={`https://eteya.ai/sv/integritetspolicy`}
                   rel="nofollow"
                   className="underline hover:font-bold"
+                  target="_blank"
                 >
-                  {t('privacy_policy', 'Privacy Policy')}
+                  {t('privacy_policy', 'Integritetspolicy')}
                 </a>
                 &nbsp;
               </div>
-              <div className="text-center mt-6">
+              <div className="text-center mt-[12px]">
                 <div className="w-full flex">
                   <Button
                     type="submit"
-                    className="flex-1 rounded-[10px] !h-[52px]"
+                    className="flex-1 rounded-[10px] !h-[48px]"
                     loading={loading}
                   >
                     {t('create_account', 'Create Account')}
                   </Button>
                 </div>
-                <p className="mt-4 text-sm">
+                <p className="mt-[12px] text-[13px]">
                   {t('already_have_an_account', 'Already Have An Account?')}
                   &nbsp;
                   <Link

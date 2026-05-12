@@ -33,17 +33,25 @@ const jakartaSans = Plus_Jakarta_Sans({
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const cookieStore = await cookies();
   const language = cookieStore.get(cookieName)?.value || fallbackLng;
-  const Plausible = !!process.env.STRIPE_PUBLISHABLE_KEY
-    ? PlausibleProvider
-    : Fragment;
+  // Eteya-iter-2: Plausible disabled (vi använder ingen analytics under utveckling).
+  // PostHog kan läggas till senare när vi har första kunder.
+  const Plausible = Fragment;
   return (
     <html>
       <head>
+        <title>Eteya</title>
+        <meta name="description" content="Eteya — AI-driven social media management för svensk SMB." />
+        <meta property="og:title" content="Eteya" />
+        <meta property="og:description" content="Eteya — AI-driven social media management." />
+        <meta property="og:site_name" content="Eteya" />
+        <meta name="application-name" content="Eteya" />
+        <meta name="apple-mobile-web-app-title" content="Eteya" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
         {!!process.env.DATAFAST_WEBSITE_ID && (
           <Script
             data-website-id={process.env.DATAFAST_WEBSITE_ID}
-            data-domain="postiz.com"
+            data-domain="app.eteya.ai"
             src="https://datafa.st/js/script.js"
             strategy="afterInteractive"
           />
@@ -96,9 +104,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
             <HtmlComponent />
             <DubAnalytics />
             <FacebookComponent />
-            <Plausible
-              domain={!!process.env.IS_GENERAL ? 'postiz.com' : 'gitroom.com'}
-            >
+            <Plausible>
               <PHProvider
                 phkey={process.env.NEXT_PUBLIC_POSTHOG_KEY}
                 host={process.env.NEXT_PUBLIC_POSTHOG_HOST}

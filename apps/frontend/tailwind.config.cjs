@@ -113,16 +113,85 @@ module.exports = {
         youtubeButton: 'var(--youtube-button)',
         youtubeBgAction: 'var(--youtube-action-color)',
         youtubeSvg: 'var(--youtube-svg-border)',
+
+        // ============================================================
+        // ETEYA TOKENS (Phase Rebrand Fas 1, 2026-05-10)
+        // Source: eteya-dashboard-blueprint-handoff.md (Snapshot v1)
+        // ============================================================
+        etBgCanvas: 'var(--et-bg-canvas)',
+        etBgBase: 'var(--et-bg-base)',
+        etSurface1: 'var(--et-surface-1)',
+        etSurface2: 'var(--et-surface-2)',
+        etSurface3: 'var(--et-surface-3)',
+        etSurfaceInset: 'var(--et-surface-inset)',
+        etSurfaceOverlay: 'var(--et-surface-overlay)',
+        etTextPrimary: 'var(--et-text-primary)',
+        etTextSecondary: 'var(--et-text-secondary)',
+        etTextMuted: 'var(--et-text-muted)',
+        etTextDisabled: 'var(--et-text-disabled)',
+        etTextInverse: 'var(--et-text-inverse)',
+        etLimeCore: 'var(--et-lime-core)',
+        etLimeSoft: 'var(--et-lime-soft)',
+        etLimeStrong: 'var(--et-lime-strong)',
+        etLimeDeep: 'var(--et-lime-deep)',
+        etBorderSubtle: 'var(--et-border-subtle)',
+        etBorderDefault: 'var(--et-border-default)',
+        etBorderStrong: 'var(--et-border-strong)',
+        etBorderActive: 'var(--et-border-active)',
+        etSuccess: 'var(--et-success)',
+        etWarning: 'var(--et-warning)',
+        etDanger: 'var(--et-danger)',
+        etInfo: 'var(--et-info)',
       },
       gridTemplateColumns: {
         13: 'repeat(13, minmax(0, 1fr));',
+      },
+      // ============================================================
+      // ETEYA SPACING (4px-baserad scale, blueprint snapshot)
+      // ============================================================
+      spacing: {
+        'et-micro': '4px',
+        'et-tight': '8px',
+        'et-compact': '12px',
+        'et-standard': '16px',
+        'et-panel': '24px',
+        'et-section': '32px',
+        'et-large': '48px',
+      },
+      // ============================================================
+      // ETEYA BORDER RADIUS (blueprint snapshot)
+      // ============================================================
+      borderRadius: {
+        'et-badge': '4px',
+        'et-button': '8px',
+        'et-input': '8px',
+        'et-card': '10px',
+        'et-panel': '12px',
+        'et-large': '14px',
+      },
+      // ============================================================
+      // ETEYA TRANSITION DURATION (blueprint snapshot)
+      // ============================================================
+      transitionDuration: {
+        'et-press': '100ms',
+        'et-state': '150ms',
+        'et-context': '240ms',
+      },
+      transitionTimingFunction: {
+        'et-out': 'cubic-bezier(.2, .8, .2, 1)',
       },
       backgroundImage: {
         loginBox: 'url(/auth/login-box.png)',
         loginBg: 'url(/auth/bg-login.png)',
       },
+      // ============================================================
+      // ETEYA TYPOGRAPHY (blueprint Snapshot v1)
+      // Geist = UI/body, Barlow Condensed = display, Bebas Neue = logo
+      // ============================================================
       fontFamily: {
-        sans: ['Helvetica Neue'],
+        sans: ['Geist', 'Helvetica Neue', 'system-ui', 'sans-serif'],
+        display: ['Barlow Condensed', 'sans-serif'],
+        brand: ['Bebas Neue', 'sans-serif'],
       },
       animation: {
         fade: 'fadeOut 0.5s ease-in-out',

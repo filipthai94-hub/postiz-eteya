@@ -3,6 +3,15 @@
 @use '@uppy/core/dist/style.css' as uppyCore;
 @use '@uppy/dashboard/dist/style.css' as uppyDashboard;
 
+/* ============================================================================
+ * ETEYA FONTS (Phase Rebrand Fas 1, 2026-05-10)
+ * Geist = UI/body | Barlow Condensed = display | Bebas Neue = logo only
+ * ============================================================================
+ */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -323,7 +332,7 @@ body * {
 }
 //
 //:root {
-//  --copilot-kit-primary-color: #612ad5 !important;
+//  --copilot-kit-primary-color: #A6D954 !important;
 //  --copilot-kit-background-color: #0b0f1c !important;
 //  --copilot-kit-separator-color: #1f2941 !important;
 //  --copilot-kit-contrast-color: #ffffff !important;
@@ -410,7 +419,7 @@ div div .set-font-family {
 }
 
 .col-calendar:hover:before {
-  content: 'Date passed';
+  content: 'Datum passerat';
   color: var(--color-text);
   position: absolute;
   left: 50%;
@@ -786,7 +795,7 @@ html[dir='rtl'] [dir='ltr'] {
 
 .forceChange .changeColor {
   background: var(--new-btn-primary) !important;
-  color: #fff !important;
+  color: #050607 !important;
 }
 
 .text-shadow-tags {

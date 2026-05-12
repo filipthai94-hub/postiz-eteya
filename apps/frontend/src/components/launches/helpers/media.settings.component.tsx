@@ -6,6 +6,7 @@ import { TopTitle } from '@gitroom/frontend/components/launches/helpers/top.titl
 import { useFetch } from '@gitroom/helpers/utils/custom.fetch';
 import { useLaunchStore } from '@gitroom/frontend/components/new-launch/store';
 import { useVariables } from '@gitroom/react/helpers/variable.context';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 const postUrlEmitter = new EventEmitter();
 
 export const MediaSettingsLayout = () => {
@@ -238,7 +239,7 @@ export const CreateThumbnail: FC<{
               onChange={handleSeek}
               className="w-full h-2 bg-fifth rounded-lg appearance-none cursor-pointer slider"
               style={{
-                background: `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${
+                background: `linear-gradient(to right, #A6D954 0%, #A6D954 ${
                   (currentTime / duration) * 100
                 }%, #374151 ${(currentTime / duration) * 100}%, #374151 100%)`,
               }}
@@ -267,7 +268,7 @@ export const CreateThumbnail: FC<{
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #4f46e5;
+          background: #A6D954;
           cursor: pointer;
           border: 2px solid #ffffff;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -277,7 +278,7 @@ export const CreateThumbnail: FC<{
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #4f46e5;
+          background: #A6D954;
           cursor: pointer;
           border: 2px solid #ffffff;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -307,6 +308,7 @@ export const MediaComponentInner: FC<{
       }
     | undefined;
 }> = (props) => {
+  const t = useT();
   const { onClose, onSelect, media } = props;
   const setActivateExitButton = useLaunchStore((e) => e.setActivateExitButton);
   const newFetch = useFetch();
@@ -443,7 +445,7 @@ export const MediaComponentInner: FC<{
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span>Back</span>
+                    <span>{t('back', 'Back')}</span>
                   </button>
                 </div>
 

@@ -100,26 +100,18 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                   <AnnouncementBanner />
                   <div className="flex-1 flex gap-[8px]">
                     <Support />
-                    <div className="flex flex-col bg-newBgColorInner w-[80px] rounded-[12px]">
-                      <div
-                        id="left-menu"
-                        className={clsx(
-                          'fixed h-full w-[64px] start-[17px] flex flex-1 top-0',
-                          user?.admin && 'pt-[60px] max-h-[1000px]:w-[500px]'
-                        )}
-                      >
-                        <div className="flex flex-col h-full gap-[32px] flex-1 py-[12px]">
+                    {/* Eteya-iteration-1: vänster sidebar borttagen, meny flyttad till top-bar */}
+                    <div className="flex-1 bg-newBgColorInner rounded-[12px] overflow-hidden flex flex-col gap-[1px] blurMe">
+                      {/* TOP-BAR: Logo + TopMenu (horizontal) + Status icons */}
+                      <div className="flex bg-newBgColorInner h-[80px] px-[20px] items-center gap-[20px]">
+                        <div className="flex-shrink-0">
                           <Logo />
+                        </div>
+                        <div className="w-[1px] h-[40px] bg-blockSeparator" />
+                        <div className="flex-1 flex items-center min-w-0 overflow-x-auto">
                           <TopMenu />
                         </div>
-                      </div>
-                    </div>
-                    <div className="flex-1 bg-newBgLineColor rounded-[12px] overflow-hidden flex flex-col gap-[1px] blurMe">
-                      <div className="flex bg-newBgColorInner h-[80px] px-[20px] items-center">
-                        <div className="text-[24px] font-[600] flex flex-1">
-                          <Title />
-                        </div>
-                        <div className="flex gap-[20px] text-textItemBlur">
+                        <div className="flex gap-[20px] text-textItemBlur items-center flex-shrink-0">
                           <StreakComponent />
                           <div className="w-[1px] h-[20px] bg-blockSeparator" />
                           <OrganizationSelector />
@@ -132,6 +124,17 @@ export const LayoutComponent = ({ children }: { children: ReactNode }) => {
                           <div className="w-[1px] h-[20px] bg-blockSeparator" />
                           <AttachToFeedbackIcon />
                           <NotificationComponent />
+                        </div>
+                      </div>
+                      {/* PAGE-TITLE-BAR med Nova-style command-bar status-strip (Fas 3A) */}
+                      <div className="flex bg-newBgColorInner h-[72px] px-[20px] items-center gap-[20px]">
+                        <div className="text-[36px] font-[700] flex flex-1 tracking-tight leading-tight">
+                          <Title />
+                        </div>
+                        {/* Status-strip: minimalist Nova command-bar (Fas 3A) */}
+                        <div className="flex items-center gap-[8px] text-[11px] font-[650] text-etTextMuted uppercase tracking-[0.08em] whitespace-nowrap">
+                          <span className="w-[6px] h-[6px] rounded-full bg-etLimeCore" />
+                          <span>LIVE · Synkat</span>
                         </div>
                       </div>
                       <div className="flex flex-1 gap-[1px]">{children}</div>

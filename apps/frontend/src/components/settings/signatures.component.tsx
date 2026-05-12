@@ -35,6 +35,8 @@ export const SignaturesComponent: FC<{
     [mutate]
   );
 
+  const t = useT();
+
   const deleteSignature = useCallback(
     (data: any) => async () => {
       if (
@@ -50,13 +52,11 @@ export const SignaturesComponent: FC<{
           method: 'DELETE',
         });
         mutate();
-        toaster.show('Signature deleted successfully', 'success');
+        toaster.show(t('signature_deleted', 'Signature deleted successfully'), 'success');
       }
     },
-    []
+    [t]
   );
-
-  const t = useT();
 
   return (
     <div className="flex flex-col">
@@ -98,21 +98,21 @@ export const SignaturesComponent: FC<{
                   </div>
                   {!!appendSignature && (
                     <div className="flex justify-center">
-                      <Button onClick={() => appendSignature(p.content)}>
+                      <Button onClick={() => appendSignature(p.content)} className="!text-black">
                         {t('use_signature', 'Use Signature')}
                       </Button>
                     </div>
                   )}
                   <div className="flex justify-center">
                     <div>
-                      <Button onClick={addSignature(p)}>
+                      <Button onClick={addSignature(p)} className="!text-black">
                         {t('edit', 'Edit')}
                       </Button>
                     </div>
                   </div>
                   <div className="flex justify-center">
                     <div>
-                      <Button onClick={deleteSignature(p)}>
+                      <Button onClick={deleteSignature(p)} className="!text-black">
                         {t('delete', 'Delete')}
                       </Button>
                     </div>
@@ -124,7 +124,7 @@ export const SignaturesComponent: FC<{
           <div>
             <Button
               onClick={addSignature()}
-              className={clsx((data?.length || 0) > 0 && 'my-[16px]')}
+              className={clsx('!text-black', (data?.length || 0) > 0 && 'my-[16px]')}
             >
               {t('add_a_signature', 'Add a signature')}
             </Button>
@@ -155,6 +155,7 @@ const AddOrRemoveSignature: FC<{
   const text = form.watch('content');
   const autoAdd = form.watch('autoAdd');
   const modal = useModals();
+  const t = useT();
   const callBack = useCallback(
     async (values: any) => {
       await fetch(data?.id ? `/signatures/${data.id}` : '/signatures', {
@@ -163,17 +164,15 @@ const AddOrRemoveSignature: FC<{
       });
       toast.show(
         data?.id
-          ? 'Signature updated successfully'
-          : 'Signature added successfully',
+          ? t('signature_updated', 'Signature updated successfully')
+          : t('signature_added', 'Signature added successfully'),
         'success'
       );
       modal.closeCurrent();
       reload();
     },
-    [data, modal]
+    [data, modal, t]
   );
-
-  const t = useT();
 
   return (
     <FormProvider {...form}>
@@ -204,7 +203,7 @@ const AddOrRemoveSignature: FC<{
             <CopilotTextarea
               disableBranding={true}
               className={clsx(
-                '!min-h-40 !max-h-80 p-2 overflow-x-hidden scrollbar scrollbar-thumb-[#612AD5] bg-bigStrip outline-none'
+                '!min-h-40 !max-h-80 p-2 overflow-x-hidden scrollbar scrollbar-thumb-[#A6D954] bg-bigStrip outline-none'
               )}
               value={text}
               onChange={(e) => {
@@ -233,7 +232,7 @@ const AddOrRemoveSignature: FC<{
             </option>
           </Select>
 
-          <Button type="submit">{t('save', 'Save')}</Button>
+          <Button type="submit" className="!text-black">{t('save', 'Save')}</Button>
         </div>
       </form>
     </FormProvider>

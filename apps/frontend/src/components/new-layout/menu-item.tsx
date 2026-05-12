@@ -13,16 +13,17 @@ export const MenuItem: FC<{ label: string; icon: ReactNode; path: string; onClic
   const currentPath = usePathname();
   const isActive = currentPath.indexOf(path) === 0;
 
+  // Eteya-iteration-1: horisontell top-bar layout (ikon + label sida vid sida)
   const className = clsx(
-    'w-full minCustom:h-[54px] custom:h-[30px] py-[8px] px-[6px] gap-[4px] flex flex-col custom:flex-row text-[10px] font-[600] items-center minCustom:justify-center rounded-[12px] hover:text-textItemFocused hover:bg-boxFocused',
+    'h-[44px] py-[8px] px-[12px] gap-[8px] flex flex-row text-[13px] font-[600] items-center justify-center rounded-[8px] hover:text-textItemFocused hover:bg-boxFocused whitespace-nowrap transition-colors',
     isActive ? 'text-textItemFocused bg-boxFocused' : 'text-textItemBlur'
   );
 
   if (onClick) {
     return (
       <button onClick={onClick} className={className}>
-        <div className="custom:hidden">{icon}</div>
-        <div className="text-[10px]">{label}</div>
+        <div className="flex-shrink-0">{icon}</div>
+        <div>{label}</div>
       </button>
     );
   }
@@ -34,8 +35,8 @@ export const MenuItem: FC<{ label: string; icon: ReactNode; path: string; onClic
       {...path.indexOf('http') === 0 && { target: '_blank' }}
       className={className}
     >
-      <div className="custom:hidden">{icon}</div>
-      <div className="text-[10px]">{label}</div>
+      <div className="flex-shrink-0">{icon}</div>
+      <div>{label}</div>
     </Link>
   );
 };

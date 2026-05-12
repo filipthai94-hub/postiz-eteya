@@ -40,7 +40,7 @@ const ConnectedComponent: FC<{
         <div className="flex-1">
           <strong>{t('connected', 'Connected:')}</strong> {login}
         </div>
-        <Button onClick={disconnect}>{t('disconnect', 'Disconnect')}</Button>
+        <Button onClick={disconnect} className="!text-black">{t('disconnect', 'Disconnect')}</Button>
       </div>
     </div>
   );
@@ -59,6 +59,7 @@ const ConnectComponent: FC<{
   const [url, setUrl] = useState('');
   const fetch = useFetch();
   const toast = useToaster();
+  const t = useT();
   const cancelConnection = useCallback(async () => {
     await (
       await fetch(`/settings/repository/${id}`, {
@@ -78,13 +79,11 @@ const ConnectComponent: FC<{
       }),
     });
     if (response.status === 404) {
-      toast.show('Repository not found', 'warning');
+      toast.show(t('repository_not_found', 'Repository not found'), 'warning');
       return;
     }
     setConnected(`${select}/${repo}`);
   }, [url]);
-
-  const t = useT();
 
   return (
     <div className="my-[16px] mt-[16px] h-[100px] bg-sixth border-fifth border rounded-[4px] px-[24px] flex">
@@ -111,7 +110,7 @@ const ConnectComponent: FC<{
           placeholder="Full GitHub URL"
         />
         <Button
-          className="h-[44px] mt-[7px]"
+          className="h-[44px] mt-[7px] !text-black"
           disabled={
             !url.match(
               /https:\/\/github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)/
@@ -146,7 +145,7 @@ export const GithubComponent: FC<{
   const fetch = useFetch();
   const connect = useCallback(async () => {
     const { url } = await (await fetch('/settings/github/url')).json();
-    window.open(url, 'Github Connect', 'width=700,height=700');
+    window.open(url, '_blank', 'width=700,height=700');
   }, []);
   const setConnected = useCallback(
     (g: { id: string; login: string }) => (name: string) => {
@@ -207,7 +206,7 @@ export const GithubComponent: FC<{
             <div className="flex-1">
               {t('connect_your_repository', 'Connect your repository')}
             </div>
-            <Button onClick={connect}>{t('connect', 'Connect')}</Button>
+            <Button onClick={connect} className="!text-black">{t('connect', 'Connect')}</Button>
           </div>
         </div>
       )}

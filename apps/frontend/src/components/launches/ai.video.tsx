@@ -28,6 +28,7 @@ export const Modal: FC<{
   const form = useForm();
   const [position, setPosition] = useState('vertical');
   const toaster = useToaster();
+  const t = useT();
 
   const loadCredits = useCallback(async () => {
     return (
@@ -47,7 +48,7 @@ export const Modal: FC<{
 
     const customParams = form.getValues();
     if (!(await form.trigger())) {
-      toaster.show('Please fill all required fields', 'warning');
+      toaster.show(t('please_fill_all_required_fields', 'Please fill all required fields'), 'warning');
       return;
     }
     try {
@@ -178,8 +179,7 @@ export const AiVideo: FC<{
           {...(value.length < 30
             ? {
                 'data-tooltip-id': 'tooltip',
-                'data-tooltip-content':
-                  'Please add at least 30 characters to generate AI video',
+                'data-tooltip-content': t('ai_video_min_30_chars', 'Please add at least 30 characters to generate AI video'),
               }
             : {})}
           className={clsx(

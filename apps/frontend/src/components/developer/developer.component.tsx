@@ -115,7 +115,7 @@ export const DeveloperComponent: FC = () => {
 
   const createApp = useCallback(async () => {
     if (!name || !redirectUrl) {
-      toaster.show('Name and Redirect URL are required', 'warning');
+      toaster.show(t('name_and_redirect_url_required', 'Name and Redirect URL are required'), 'warning');
       return;
     }
     try {
@@ -141,7 +141,7 @@ export const DeveloperComponent: FC = () => {
       setCreating(false);
       mutate();
     } catch {
-      toaster.show('Failed to create app', 'warning');
+      toaster.show(t('failed_to_create_app', 'Failed to create app'), 'warning');
     }
   }, [name, description, redirectUrl, pictureId]);
 
@@ -156,11 +156,11 @@ export const DeveloperComponent: FC = () => {
           pictureId,
         }),
       });
-      toaster.show('App updated', 'success');
+      toaster.show(t('app_updated', 'App updated'), 'success');
       setEditing(false);
       mutate();
     } catch {
-      toaster.show('Failed to update app', 'warning');
+      toaster.show(t('failed_to_update_app', 'Failed to update app'), 'warning');
     }
   }, [name, description, redirectUrl, pictureId]);
 
@@ -186,7 +186,7 @@ export const DeveloperComponent: FC = () => {
         mutate();
       }
     } catch {
-      toaster.show('Failed to rotate secret', 'warning');
+      toaster.show(t('failed_to_rotate_secret', 'Failed to rotate secret'), 'warning');
     }
   }, [decision]);
 
@@ -201,11 +201,11 @@ export const DeveloperComponent: FC = () => {
     if (!approved) return;
     try {
       await fetch('/user/oauth-app', { method: 'DELETE' });
-      toaster.show('OAuth app deleted', 'success');
+      toaster.show(t('oauth_app_deleted', 'OAuth app deleted'), 'success');
       setPlaintextSecret(null);
       mutate();
     } catch {
-      toaster.show('Failed to delete app', 'warning');
+      toaster.show(t('failed_to_delete_app', 'Failed to delete app'), 'warning');
     }
   }, [decision]);
 
@@ -243,8 +243,8 @@ export const DeveloperComponent: FC = () => {
             </div>
             <div className="flex gap-[6px] shrink-0 pt-[2px]">
               <a
-                className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
-                href="https://docs.postiz.com/public-api/oauth"
+                className="cursor-pointer px-[16px] h-[36px] bg-[#A6D954] hover:bg-[#5520CB] text-black transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
+                href="https://eteya.ai/sv/docs"
                 target="_blank"
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
@@ -256,7 +256,7 @@ export const DeveloperComponent: FC = () => {
             <button
               type="button"
               onClick={() => setCreating(true)}
-              className="cursor-pointer px-[20px] h-[44px] bg-[#612BD3] hover:bg-[#5520CB] transition-colors text-white rounded-[8px] text-[15px] font-[600]"
+              className="cursor-pointer px-[20px] h-[44px] bg-[#A6D954] hover:bg-[#5520CB] transition-colors text-black rounded-[8px] text-[15px] font-[600]"
             >
               {t('create_oauth_app', 'Create OAuth App')}
             </button>
@@ -358,7 +358,7 @@ export const DeveloperComponent: FC = () => {
               <button
                 type="button"
                 onClick={createApp}
-                className="cursor-pointer px-[20px] h-[44px] bg-[#612BD3] hover:bg-[#5520CB] transition-colors text-white rounded-[8px] text-[15px] font-[600]"
+                className="cursor-pointer px-[20px] h-[44px] bg-[#A6D954] hover:bg-[#5520CB] transition-colors text-black rounded-[8px] text-[15px] font-[600]"
               >
                 {t('create', 'Create')}
               </button>
@@ -406,8 +406,8 @@ export const DeveloperComponent: FC = () => {
           </div>
           <div className="flex gap-[6px] shrink-0 pt-[2px]">
             <a
-              className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
-              href="https://docs.postiz.com/public-api/oauth"
+              className="cursor-pointer px-[16px] h-[36px] bg-[#A6D954] hover:bg-[#5520CB] text-black transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
+              href="https://eteya.ai/sv/docs"
               target="_blank"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
@@ -482,7 +482,7 @@ export const DeveloperComponent: FC = () => {
               <button
                 type="button"
                 onClick={updateApp}
-                className="cursor-pointer px-[20px] h-[44px] bg-[#612BD3] hover:bg-[#5520CB] transition-colors text-white rounded-[8px] text-[15px] font-[600]"
+                className="cursor-pointer px-[20px] h-[44px] bg-[#A6D954] hover:bg-[#5520CB] transition-colors text-black rounded-[8px] text-[15px] font-[600]"
               >
                 {t('save', 'Save')}
               </button>

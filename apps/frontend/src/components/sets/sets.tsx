@@ -49,7 +49,7 @@ const SaveSetModal: FC<{
         <Button type="button" secondary onClick={onCancel}>
           {t('cancel', 'Cancel')}
         </Button>
-        <Button type="submit" disabled={!name.trim()}>
+        <Button type="submit" disabled={!name.trim()} className="!text-black">
           {t('save', 'Save')}
         </Button>
       </div>
@@ -157,7 +157,7 @@ export const Sets: FC = () => {
           method: 'DELETE',
         });
         mutate();
-        toaster.show('Set deleted successfully', 'success');
+        toaster.show(t('set_deleted', 'Set deleted successfully'), 'success');
       }
     },
     []
@@ -167,9 +167,9 @@ export const Sets: FC = () => {
 
   return (
     <div className="flex flex-col">
-      <h3 className="text-[20px]">Sets ({data?.length || 0})</h3>
+      <h3 className="text-[20px]">{t('sets', 'Sets')} ({data?.length || 0})</h3>
       <div className="text-customColor18 mt-[4px]">
-        Manage your content sets for easy reuse across posts.
+        {t('sets_description', 'Manage your content sets for easy reuse across posts.')}
       </div>
       <div className="my-[16px] mt-[16px] bg-sixth border-fifth items-center border rounded-[4px] p-[24px] flex gap-[24px]">
         <div className="flex flex-col w-full">
@@ -183,12 +183,12 @@ export const Sets: FC = () => {
                   <div className="flex flex-col justify-center">{p.name}</div>
                   <div className="flex flex-col justify-center">
                     <div>
-                      <Button onClick={addSet(p)}>{t('edit', 'Edit')}</Button>
+                      <Button onClick={addSet(p)} className="!text-black">{t('edit', 'Edit')}</Button>
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
                     <div>
-                      <Button onClick={deleteSet(p)}>
+                      <Button onClick={deleteSet(p)} className="!text-black">
                         {t('delete', 'Delete')}
                       </Button>
                     </div>
@@ -200,9 +200,9 @@ export const Sets: FC = () => {
           <div>
             <Button
               onClick={addSet()}
-              className={clsx((data?.length || 0) > 0 && 'my-[16px]')}
+              className={clsx('!text-black', (data?.length || 0) > 0 && 'my-[16px]')}
             >
-              Add a set
+              {t('add_set', 'Add a set')}
             </Button>
           </div>
         </div>

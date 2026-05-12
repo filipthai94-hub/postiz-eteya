@@ -111,7 +111,7 @@ export const ApprovedAppsComponent: FC = () => {
                     </div>
                   </div>
                 </div>
-                <Button onClick={revokeApp(app)}>
+                <Button onClick={revokeApp(app)} className="!text-black">
                   {t('revoke', 'Revoke')}
                 </Button>
               </div>

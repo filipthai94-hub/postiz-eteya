@@ -142,7 +142,7 @@ export const Pagination: FC<{
               className={clsx(
                 'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border hover:bg-forth h-10 w-10 hover:text-white border-newBorder',
                 current === item - 1
-                  ? 'bg-forth !text-white'
+                  ? 'bg-forth !text-black'
                   : 'text-textColor hover:text-white'
               )}
             >
@@ -430,7 +430,7 @@ export const MediaBox: FC<{
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={t('search_media_by_name', 'Search by file name')}
-              className="w-full h-[44px] px-[14px] rounded-[8px] bg-newBgColorInner border border-newColColor text-[14px] outline-none focus:border-[#612BD3]"
+              className="w-full h-[44px] px-[14px] rounded-[8px] bg-newBgColorInner border border-newColColor text-[14px] outline-none focus:border-[#A6D954]"
             />
           </div>
           <input
@@ -543,13 +543,13 @@ export const MediaBox: FC<{
                     className={clsx(
                       'w-full h-full rounded-[6px] border-[4px] relative',
                       !!selected.find((p) => p.id === media.id)
-                        ? 'border-[#612BD3]'
+                        ? 'border-[#A6D954]'
                         : 'border-transparent'
                     )}
                     onClick={addRemoveSelected(media)}
                   >
                     {!!selected.find((p: any) => p.id === media.id) ? (
-                      <div className="text-white flex z-[101] justify-center items-center text-[14px] font-[500] w-[24px] h-[24px] rounded-full bg-[#612BD3] absolute -bottom-[10px] -end-[10px]">
+                      <div className="text-black flex z-[101] justify-center items-center text-[14px] font-[500] w-[24px] h-[24px] rounded-full bg-[#A6D954] absolute -bottom-[10px] -end-[10px]">
                         {selected.findIndex((z: any) => z.id === media.id) + 1}
                       </div>
                     ) : (
@@ -615,7 +615,7 @@ export const MediaBox: FC<{
               <button
                 onClick={standalone ? () => {} : addMedia}
                 disabled={selected.length === 0}
-                className="cursor-pointer text-white disabled:opacity-80 disabled:cursor-not-allowed h-[52px] px-[20px] items-center justify-center bg-[#612BD3] flex rounded-[10px]"
+                className="cursor-pointer text-black disabled:opacity-80 disabled:cursor-not-allowed h-[52px] px-[20px] items-center justify-center bg-[#A6D954] flex rounded-[10px]"
               >
                 {t('add_selected_media', 'Add selected media')}
               </button>
@@ -978,13 +978,13 @@ export const MediaComponent: FC<{
           <img
             className="w-full h-full object-cover"
             src={currentMedia.path}
-            onClick={() => window.open(mediaDirectory.set(currentMedia.path))}
+            onClick={() => window.open(mediaDirectory.set(currentMedia.path), '_blank')}
           />
         </div>
       )}
       <div className="flex gap-[5px]">
-        <Button onClick={showModal}>{t('select', 'Select')}</Button>
-        <Button onClick={showDesignModal} className="!bg-customColor45">
+        <Button onClick={showModal} className="!text-black">{t('select', 'Select')}</Button>
+        <Button onClick={showDesignModal} className="!bg-customColor45 !text-black">
           {t('editor', 'Editor')}
         </Button>
         <Button secondary={true} onClick={clearMedia}>

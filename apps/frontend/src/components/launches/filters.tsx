@@ -271,8 +271,48 @@ export const Filters = () => {
     }
   }, [calendar]);
 
+  // Eteya Fas 3.5: Beräkna stats för eyebrow + stats-block
+  const draftCount = (calendar.posts || []).filter((p: any) => p?.state === 'DRAFT').length;
+  const upcomingCount = (calendar.posts || []).filter((p: any) => {
+    try {
+      return p?.publishDate && newDayjs(p.publishDate).isAfter(newDayjs().endOf('day'));
+    } catch {
+      return false;
+    }
+  }).length;
+  const channelCount = (calendar.integrations || []).length;
+  const weekNumber = calendar.startDate ? newDayjs(calendar.startDate).week() : null;
+
   return (
-    <div className="text-textColor flex flex-col md:flex-row gap-[8px] items-center select-none">
+    <div className="flex flex-col gap-[12px]">
+      {/* Eteya Fas 3.5: Eyebrow + Stats-block (Nova command-bar pattern) */}
+      {!isListView && (
+        <div className="flex items-center justify-between flex-wrap gap-[12px]">
+          {/* Eyebrow vänster */}
+          <div className="text-[11px] font-[650] text-etTextMuted uppercase tracking-[0.08em]">
+            {weekNumber !== null && <>VECKA {weekNumber} · </>}
+            {calendar.posts?.length || 0} INLÄGG
+          </div>
+          {/* Stats-block höger */}
+          <div className="flex items-center gap-[20px] text-[11px] font-[650] uppercase tracking-[0.08em]">
+            <div className="flex items-center gap-[6px]">
+              <span className="text-etTextMuted">DRAFTS</span>
+              <span className="text-etTextPrimary font-[700] text-[13px]">{draftCount}</span>
+            </div>
+            <div className="flex items-center gap-[6px]">
+              <span className="text-etTextMuted">P&Aring; V&Auml;G</span>
+              <span className="text-etTextPrimary font-[700] text-[13px]">{upcomingCount}</span>
+            </div>
+            <div className="flex items-center gap-[6px]">
+              <span className="text-etTextMuted">KANALER</span>
+              <span className="text-etTextPrimary font-[700] text-[13px]">{channelCount}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Existing filter-bar (datum-range + Dag/Vecka/Månad toggle) */}
+      <div className="text-textColor flex flex-col md:flex-row gap-[8px] items-center select-none">
       {!isListView && (
         <div className="flex flex-grow flex-row items-center gap-[10px]">
           <div className="border h-[42px] border-newTableBorder bg-newTableBorder gap-[1px] flex items-center rounded-[8px] overflow-hidden">
@@ -481,6 +521,7 @@ export const Filters = () => {
             />
           </svg>
         </div>
+      </div>
       </div>
     </div>
   );

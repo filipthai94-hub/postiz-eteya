@@ -97,7 +97,7 @@ export const AddMember = () => {
               {t('send_invitation_via_email', 'Send invitation via email?')}
             </div>
           </div>
-          <Button type="submit" className="mt-[18px]">
+          <Button type="submit" className="mt-[18px] !text-black">
             {sendEmail ? t('send_invitation_link', 'Send Invitation Link') : t('copy_link', 'Copy Link')}
           </Button>
         </div>
@@ -219,7 +219,7 @@ export const TeamsComponent = () => {
           ))}
         </div>
         <div>
-          <Button onClick={addMember}>
+          <Button onClick={addMember} className="!text-black">
             {t('add_another_member', 'Add another member')}
           </Button>
         </div>

@@ -92,14 +92,14 @@ export const Autopost: FC = () => {
                   <div className="flex flex-col justify-center">{p.url}</div>
                   <div className="flex flex-col justify-center">
                     <div>
-                      <Button onClick={addWebhook(p)}>
+                      <Button onClick={addWebhook(p)} className="!text-black">
                         {t('edit', 'Edit')}
                       </Button>
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
                     <div>
-                      <Button onClick={deleteHook(p)}>
+                      <Button onClick={deleteHook(p)} className="!text-black">
                         {t('delete', 'Delete')}
                       </Button>
                     </div>
@@ -118,7 +118,7 @@ export const Autopost: FC = () => {
           <div>
             <Button
               onClick={addWebhook()}
-              className={clsx((data?.length || 0) > 0 && 'my-[16px]')}
+              className={clsx('!text-black', (data?.length || 0) > 0 && 'my-[16px]')}
             >
               {t('add_an_autopost', 'Add an autopost')}
             </Button>
@@ -357,7 +357,7 @@ export const AddOrEditWebhook: FC<{
                 <CopilotTextarea
                   disableBranding={true}
                   className={clsx(
-                    '!min-h-40 !max-h-80 p-2 overflow-x-hidden scrollbar scrollbar-thumb-[#612AD5] bg-customColor2 outline-none mb-[16px] border-fifth border rounded-[4px]'
+                    '!min-h-40 !max-h-80 p-2 overflow-x-hidden scrollbar scrollbar-thumb-[#A6D954] bg-customColor2 outline-none mb-[16px] border-fifth border rounded-[4px]'
                   )}
                   value={content}
                   onChange={(e) => {
@@ -412,7 +412,7 @@ export const AddOrEditWebhook: FC<{
               {valid === url && (syncLast || !!lastUrl) && (
                 <Button
                   type="submit"
-                  className="mt-[24px]"
+                  className="mt-[24px] !text-black"
                   disabled={
                     valid !== url ||
                     !form.formState.isValid ||
@@ -425,7 +425,7 @@ export const AddOrEditWebhook: FC<{
               )}
               <Button
                 type="button"
-                className="mt-[24px]"
+                className="mt-[24px] !text-black"
                 onClick={sendTest}
                 disabled={
                   !form.formState.isValid ||

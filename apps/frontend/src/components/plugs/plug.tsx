@@ -174,6 +174,7 @@ export const PlugItem: FC<{
   };
 }> = (props) => {
   const { plug, addPlug, data } = props;
+  const t = useT();
   const [activated, setActivated] = useState(!!data?.activated);
   useEffect(() => {
     setActivated(!!data?.activated);
@@ -214,7 +215,7 @@ export const PlugItem: FC<{
           )}
         </div>
         <div className="flex-1">{plug.description}</div>
-        <Button>{!data ? 'Set Plug' : 'Edit Plug'}</Button>
+        <Button>{!data ? t('set_plug', 'Set Plug') : t('edit_plug', 'Edit Plug')}</Button>
       </div>
     </div>
   );

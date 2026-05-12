@@ -9,6 +9,7 @@ import { useToaster } from '@gitroom/react/toaster/toaster';
 import { useModals } from '@gitroom/frontend/components/layout/new-modal';
 import { Button } from '@gitroom/react/form/button';
 import { LoadingComponent } from '@gitroom/frontend/components/layout/loading';
+import { useT } from '@gitroom/react/translation/get.transation.service.client';
 
 interface ErrorRow {
   id: string;
@@ -42,6 +43,7 @@ const safeParse = (value: string) => {
 };
 
 const ErrorDetailsModal: FC<{ row: ErrorRow }> = ({ row }) => {
+  const t = useT();
   const modal = useModals();
   const toaster = useToaster();
   const parsedMessage = useMemo(() => safeParse(row.message), [row.message]);
@@ -55,15 +57,15 @@ const ErrorDetailsModal: FC<{ row: ErrorRow }> = ({ row }) => {
         2
       )
     );
-    toaster.show('Debug code copied to clipboard', 'success');
-  }, [parsedMessage, parsedBody, row, toaster]);
+    toaster.show(t('debug_code_copied', 'Debug code copied to clipboard'), 'success');
+  }, [parsedMessage, parsedBody, row, toaster, t]);
 
   return (
     <div className="rounded-[4px] border border-newTableBorder bg-newBgColorInner px-[16px] pb-[16px] relative w-full max-h-[80vh] overflow-auto">
       <div className="sticky top-0 bg-newBgColorInner py-[16px] flex items-center justify-between gap-[12px] z-10 border-b border-newTableBorder mb-[12px]">
-        <div className="text-[16px] font-[600]">Error Details</div>
+        <div className="text-[16px] font-[600]">{t('error_details', 'Error Details')}</div>
         <div className="flex gap-[8px] items-center">
-          <Button onClick={copyAll}>Copy Debug Code</Button>
+          <Button onClick={copyAll}>{t('copy_debug_code', 'Copy Debug Code')}</Button>
           <button
             className="outline-none w-[28px] h-[28px] flex items-center justify-center hover:bg-tableBorder cursor-pointer rounded"
             type="button"
@@ -170,6 +172,7 @@ const useErrorsList = (params: {
 };
 
 export const AdminErrorsComponent: FC = () => {
+  const t = useT();
   const user = useUser();
   const modal = useModals();
   const toaster = useToaster();
@@ -225,9 +228,9 @@ export const AdminErrorsComponent: FC = () => {
           2
         )
       );
-      toaster.show('Debug code copied to clipboard', 'success');
+      toaster.show(t('debug_code_copied', 'Debug code copied to clipboard'), 'success');
     },
-    [toaster]
+    [toaster, t]
   );
 
   if (!user?.isSuperAdmin) {
@@ -243,7 +246,7 @@ export const AdminErrorsComponent: FC = () => {
   return (
     <div className="flex flex-col gap-[16px] text-textColor">
       <div className="flex items-center justify-between">
-        <div className="text-[20px] font-[600]">Errors</div>
+        <div className="text-[20px] font-[600]">{t('errors', 'Errors')}</div>
         <div className="text-[13px] opacity-70">
           {data ? `${data.total} total` : ''}
         </div>
@@ -251,7 +254,7 @@ export const AdminErrorsComponent: FC = () => {
 
       <div className="flex flex-wrap gap-[12px] items-end bg-newBgColorInner border border-newTableBorder rounded-[8px] p-[12px]">
         <div className="flex flex-col gap-[6px]">
-          <div className="text-[12px] opacity-70">Platform</div>
+          <div className="text-[12px] opacity-70">{t('platform', 'Platform')}</div>
           <select
             value={platform}
             onChange={(e) => {
@@ -260,7 +263,7 @@ export const AdminErrorsComponent: FC = () => {
             }}
             className="bg-newBgColorInner h-[38px] border border-newTableBorder rounded-[8px] px-[10px] text-[14px] text-textColor min-w-[180px]"
           >
-            <option value="">All platforms</option>
+            <option value="">{t('all_platforms', 'All platforms')}</option>
             {(platforms || []).map((p) => (
               <option key={p} value={p}>
                 {p}
@@ -270,7 +273,7 @@ export const AdminErrorsComponent: FC = () => {
         </div>
 
         <div className="flex flex-col gap-[6px]">
-          <div className="text-[12px] opacity-70">Email contains</div>
+          <div className="text-[12px] opacity-70">{t('email_contains', 'Email contains')}</div>
           <div className="flex gap-[8px]">
             <input
               value={emailInput}
@@ -281,7 +284,7 @@ export const AdminErrorsComponent: FC = () => {
               placeholder="user@example.com"
               className="bg-newBgColorInner h-[38px] border border-newTableBorder rounded-[8px] px-[10px] text-[14px] text-textColor min-w-[240px]"
             />
-            <Button onClick={onApplyEmail}>Apply</Button>
+            <Button onClick={onApplyEmail}>{t('apply', 'Apply')}</Button>
           </div>
         </div>
 
@@ -294,11 +297,11 @@ export const AdminErrorsComponent: FC = () => {
               setUnknownFirst(e.target.checked);
             }}
           />
-          Unknown Error first
+          {t('unknown_error_first', 'Unknown Error first')}
         </label>
 
         <div className="flex flex-col gap-[6px]">
-          <div className="text-[12px] opacity-70">Per page</div>
+          <div className="text-[12px] opacity-70">{t('per_page', 'Per page')}</div>
           <select
             value={limit}
             onChange={(e) => {
@@ -316,7 +319,7 @@ export const AdminErrorsComponent: FC = () => {
         </div>
 
         <Button secondary onClick={onClear}>
-          Clear filters
+          {t('clear_filters', 'Clear filters')}
         </Button>
       </div>
 
@@ -325,15 +328,15 @@ export const AdminErrorsComponent: FC = () => {
       ) : error ? (
         <div className="text-red-400">Failed to load errors.</div>
       ) : !data || data.items.length === 0 ? (
-        <div className="opacity-70">No errors found.</div>
+        <div className="opacity-70">{t('no_errors_found', 'No errors found.')}</div>
       ) : (
         <div className="border border-newTableBorder rounded-[8px] overflow-hidden">
           <div className="grid grid-cols-[170px_120px_220px_1fr_220px] gap-[12px] px-[12px] py-[10px] bg-newBgColorInner text-[12px] uppercase opacity-70 border-b border-newTableBorder">
-            <div>Created</div>
-            <div>Platform</div>
-            <div>User / Org</div>
-            <div>Message</div>
-            <div className="text-right">Actions</div>
+            <div>{t('created', 'Created')}</div>
+            <div>{t('platform', 'Platform')}</div>
+            <div>{t('user_org', 'User / Org')}</div>
+            <div>{t('message', 'Message')}</div>
+            <div className="text-right">{t('actions', 'Actions')}</div>
           </div>
           {data.items.map((row) => {
             const isUnknown = (row.message || '').includes('Unknown Error');

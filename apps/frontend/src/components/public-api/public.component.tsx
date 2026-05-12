@@ -240,8 +240,8 @@ const McpSection = ({
         </div>
         <div className="flex gap-[6px] shrink-0 pt-[2px]">
           <a
-            className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
-            href="https://docs.postiz.com/mcp/introduction"
+            className="cursor-pointer px-[16px] h-[36px] bg-[#A6D954] hover:bg-[#5520CB] text-black transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
+            href="https://eteya.ai/sv/docs"
             target="_blank"
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
@@ -262,7 +262,7 @@ const McpSection = ({
                 className={clsx(
                   'cursor-pointer px-[14px] h-[36px] text-[13px] font-[500] rounded-[8px] transition-colors',
                   method === m
-                    ? 'bg-[#612BD3] text-white'
+                    ? 'bg-[#A6D954] text-black'
                     : 'bg-btnSimple text-customColor18 hover:bg-boxHover hover:text-textColor'
                 )}
                 onClick={() => setMethod(m)}
@@ -287,7 +287,7 @@ const McpSection = ({
                   className={clsx(
                     'cursor-pointer px-[14px] h-[36px] text-[13px] font-[500] rounded-[8px] transition-colors',
                     activeClient === client
-                      ? 'bg-[#612BD3] text-white'
+                      ? 'bg-[#A6D954] text-black'
                       : 'bg-btnSimple text-customColor18 hover:bg-boxHover hover:text-textColor'
                   )}
                   onClick={() => setActiveClient(client)}
@@ -358,40 +358,41 @@ const McpSection = ({
   );
 };
 
-const localCliSteps = [
-  {
-    label: 'Install the CLI',
-    code: 'npm install -g postiz',
-  },
-  {
-    label: 'Run: postiz auth:login',
-    code: 'postiz auth:login',
-  },
-  {
-    label: 'Install the Eteya skill for your AI agent',
-    code: 'npx skills add gitroomhq/postiz-agent',
-  },
-] as const;
-
-const ciCliSteps = [
-  {
-    label: 'Install the CLI',
-    code: 'npm install -g postiz',
-  },
-  {
-    label: 'Set your API key as an environment variable',
-    code: 'export POSTIZ_API_KEY="{API_KEY}"',
-  },
-  {
-    label: 'Install the Eteya skill for your AI agent',
-    code: 'npx skills add gitroomhq/postiz-agent',
-  },
-] as const;
-
+// Eteya-iter-2: t() flyttat IN i komponenten eftersom det är en hook
 const CliSection = ({ apiKey }: { apiKey: string }) => {
   const t = useT();
   const [mode, setMode] = useState<'local' | 'ci'>('local');
   const [revealed, setRevealed] = useState(false);
+
+  const localCliSteps = [
+    {
+      label: t('install_the_cli', 'Install the CLI'),
+      code: 'npm install -g postiz',
+    },
+    {
+      label: t('run_postiz_auth_login', 'Run: postiz auth:login'),
+      code: 'postiz auth:login',
+    },
+    {
+      label: t('install_eteya_skill', 'Install the Eteya skill for your AI agent'),
+      code: 'npx skills add gitroomhq/postiz-agent',
+    },
+  ] as const;
+
+  const ciCliSteps = [
+    {
+      label: t('install_the_cli', 'Install the CLI'),
+      code: 'npm install -g postiz',
+    },
+    {
+      label: t('set_api_key_env_var', 'Set your API key as an environment variable'),
+      code: 'export POSTIZ_API_KEY="{API_KEY}"',
+    },
+    {
+      label: t('install_eteya_skill', 'Install the Eteya skill for your AI agent'),
+      code: 'npx skills add gitroomhq/postiz-agent',
+    },
+  ] as const;
 
   const steps =
     mode === 'local'
@@ -428,8 +429,8 @@ const CliSection = ({ apiKey }: { apiKey: string }) => {
         </div>
         <div className="flex gap-[6px] shrink-0 pt-[2px]">
           <a
-            className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
-            href="https://docs.postiz.com/cli/introduction"
+            className="cursor-pointer px-[16px] h-[36px] bg-[#A6D954] hover:bg-[#5520CB] text-black transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
+            href="https://eteya.ai/sv/docs"
             target="_blank"
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
@@ -446,7 +447,7 @@ const CliSection = ({ apiKey }: { apiKey: string }) => {
               className={clsx(
                 'cursor-pointer px-[14px] h-[36px] text-[13px] font-[500] rounded-[8px] transition-colors',
                 mode === m
-                  ? 'bg-[#612BD3] text-white'
+                  ? 'bg-[#A6D954] text-black'
                   : 'bg-btnSimple text-customColor18 hover:bg-boxHover hover:text-textColor'
               )}
               onClick={() => setMode(m)}
@@ -584,15 +585,15 @@ const PublicApiContent = () => {
           </div>
           <div className="flex gap-[6px] shrink-0 pt-[2px]">
             <a
-              className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
-              href="https://docs.postiz.com/public-api"
+              className="cursor-pointer px-[16px] h-[36px] bg-[#A6D954] hover:bg-[#5520CB] text-black transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
+              href="https://eteya.ai/sv/docs"
               target="_blank"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
             {t('read_the_docs', 'Docs')}
             </a>
             <a
-              className="cursor-pointer px-[16px] h-[36px] bg-[#612BD3] hover:bg-[#5520CB] text-white transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
+              className="cursor-pointer px-[16px] h-[36px] bg-[#A6D954] hover:bg-[#5520CB] text-black transition-colors rounded-[8px] text-[13px] font-[600] flex items-center gap-[6px]"
               href="https://www.npmjs.com/package/n8n-nodes-postiz"
               target="_blank"
             >
@@ -721,7 +722,7 @@ export const PublicComponent = () => {
             className={clsx(
               'cursor-pointer px-[20px] h-[44px] text-[15px] font-[600] rounded-[8px] transition-colors',
               subTab === tab
-                ? 'bg-[#612BD3] text-white'
+                ? 'bg-[#A6D954] text-black'
                 : 'bg-btnSimple text-customColor18 hover:bg-boxHover hover:text-textColor'
             )}
             onClick={() => setSubTab(tab)}

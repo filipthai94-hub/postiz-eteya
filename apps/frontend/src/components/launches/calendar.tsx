@@ -16,6 +16,7 @@ import {
 } from '@gitroom/frontend/components/launches/calendar.context';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
+import 'dayjs/locale/sv'; // Eteya — svensk locale
 import 'dayjs/locale/he';
 import 'dayjs/locale/ru';
 import 'dayjs/locale/zh';
@@ -836,7 +837,7 @@ export const CalendarColumn: FC<{
       <div
         className={clsx(
           'relative flex flex-col flex-1 text-white rounded-[8px] min-h-[70px]',
-          canDrop && 'border border-[#612BD3]'
+          canDrop && 'border border-[#A6D954]'
         )}
       >
         <div
@@ -915,7 +916,7 @@ export const CalendarColumn: FC<{
                   )}
                 >
                   <div
-                    className={`group-hover:before:content-["+"] pb-[5px] flex justify-center items-center rounded-[8px] transition-all group-hover:bg-btnPrimary w-full h-full max-w-[40px] max-h-[40px]`}
+                    className={`group-hover:before:content-["+"] group-hover:before:text-black pb-[5px] flex justify-center items-center rounded-[8px] transition-all group-hover:bg-btnPrimary w-full h-full max-w-[40px] max-h-[40px]`}
                   />
                 </div>
               )}
@@ -1028,8 +1029,8 @@ const CalendarItem: FC<{
       ref={dragRef}
       className={clsx(
         'w-full flex h-full flex-1 flex-col group',
-        'relative',
-        state === 'ERROR' && 'rounded-[10px] ring-2 ring-red-500'
+        'relative border-l-[3px] border-etLimeCore rounded-[10px] overflow-hidden bg-newSettings',
+        state === 'ERROR' && '!border-red-500 ring-2 ring-red-500'
       )}
       style={{
         opacity,
@@ -1046,7 +1047,7 @@ const CalendarItem: FC<{
       )}
       <div
         className={clsx(
-          'text-white text-[11px] max-h-[24px] h-[24px] min-h-[24px] w-full rounded-tr-[10px] rounded-tl-[10px] flex items-center justify-center gap-[10px] px-[5px] bg-btnPrimary'
+          'text-textColor text-[11px] max-h-[24px] h-[24px] min-h-[24px] w-full flex items-center justify-center gap-[10px] px-[5px] bg-transparent border-b border-etBorderSubtle'
         )}
         style={{
           backgroundColor: post?.tags?.[0]?.tag?.color,
@@ -1127,8 +1128,8 @@ const CalendarItem: FC<{
       <div
         onClick={editPost}
         className={clsx(
-          'gap-[5px] w-full flex h-full flex-1 rounded-br-[10px] rounded-bl-[10px] p-[8px] text-[14px] bg-newColColor',
-          'relative',
+          'gap-[5px] w-full flex h-full flex-1 p-[8px] text-[14px] bg-transparent',
+          'relative cursor-pointer hover:bg-boxHover transition-colors',
           isBeforeNow && '!grayscale'
         )}
       >
