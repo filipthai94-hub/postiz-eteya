@@ -89,6 +89,16 @@ Produktion körs i Docker. Se `docker-compose.yaml` + `var/docker/`.
 - [SECURITY.md](./SECURITY.md) — security policy
 - [Postiz docs](https://docs.postiz.com) — upstream documentation
 
+## Ecosystem
+
+Detta repo är **en del** av Eteya Social Stack — fler komponenter finns:
+
+- **n8n workflows** — content-generation pipeline (calls our `/api/preview-content`)
+- **eteya-carousel-service** — Puppeteer microservice för carousel-bilder
+- **blueprints/** — content-regler per plattform
+
+Parent monorepo: `github.com/filipthai94-hub/social-stack` (privat).
+
 ---
 
 ## License

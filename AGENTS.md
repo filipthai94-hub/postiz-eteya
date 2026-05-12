@@ -82,11 +82,24 @@ docker compose -f docker-compose.dev.yaml up   # local containers
 - **Ask first:** Adding new npm dependency. Modifying upstream-Postiz files (check `git blame` — if last touched by `gitroomhq`, ask). Touching `LICENSE` or `package.json` engines. Database schema changes.
 - **Never:** Commit secrets (.env). Use npm/yarn (pnpm only). Install frontend libraries that duplicate existing UI (write native components). Modify `/libraries/` upstream services without strong reason. Push to `gitroomhq/postiz-app` (this is our fork).
 
+## Ecosystem — where this fits
+
+This repo is part of **Eteya Social Stack**, a multi-component system:
+
+- **`postiz-eteya/`** ← YOU ARE HERE (public — `github.com/filipthai94-hub/postiz-eteya`)
+- **`eteya-carousel-service`** — Puppeteer microservice for carousel-image rendering (called by n8n)
+- **`n8n`** — workflow engine that calls our `/api/preview-content` + `/api/approve-content` routes
+- **`blueprints/`** — content rules per platform (LinkedIn, IG, FB, Threads, X, Bluesky)
+- **`branding/`** — Eteya logos, fonts, design tokens
+
+The parent monorepo lives at `github.com/filipthai94-hub/social-stack` (**private** — request access from Filip if needed).
+
 ## Where to dig deeper
 
-- Architecture pipeline: `../docs/ARCHITECTURE.md` (social-stack root)
-- Per-platform content rules: `../blueprints/`
+- Architecture pipeline (full): `social-stack/docs/ARCHITECTURE.md` (parent repo)
+- Per-platform content rules: `social-stack/blueprints/` (parent repo)
 - Postiz upstream conventions: [docs.postiz.com](https://docs.postiz.com)
+- Custom fork-changes: [FORK-CHANGELOG.md](./FORK-CHANGELOG.md) (this repo)
 
 ## Out of scope (don't touch unless asked)
 
